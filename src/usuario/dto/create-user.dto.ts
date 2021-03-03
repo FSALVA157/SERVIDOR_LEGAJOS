@@ -1,42 +1,46 @@
 import { UsuarioRole } from '../enums';
 import{IsInt, Min, Length, IsAlphanumeric, MinLength, IsEmail, IsOptional, IsISO8601, Matches, IsEnum, IsString, IsDateString, IsDate} from 'class-validator';
-import {Exclude, Transform} from 'class-transformer';
-import { Options } from '@nestjs/common';
-import { strict } from 'assert';
+import { EnumToString } from 'src/helpers/enumToString';
 
 export class CreateUserDto {
     
     @IsString()
+    @Matches(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/,{message:'El email no es correcto'})
     @Length(4,50,{message:'El usuario debe tener entre $constraint1 y $constraint2 caracteres en este momento tu texto tiene una longitud de $value letras'})
-    usuario: string;
+    correo: string;
 
     @IsString()
-    @Length(4,50,{message:'La clave debe tener entre $constraint1 y $constraint2 caracteres en este momento tu texto tiene una longitud de $value letras'})
+    @MinLength(6,{message:'La clave debe tener un mínimo de 6 caracteres'})
     clave: string;
     
     @IsInt({message:'El dni debe ser un número entero'})
     @Min(1000000,{message:'El valor que intenta asignar a Dni no es válido'})
-    dni: string;
+    dni: number;
     
     @IsString()
-    @Length(4,50,{message:'El nombre debe tener entre $constraint1 y $constraint2 caracteres'})
+    @Length(2,50,{message:'El nombre debe tener entre $constraint1 y $constraint2 caracteres'})
     nombre: string;
     
     @IsString()
-    @Length(4,50,{message:'El apellido debe tener entre $constraint1 y $constraint2 caracteres'})
+    @Length(2,50,{message:'El apellido debe tener entre $constraint1 y $constraint2 caracteres'})
     apellido: string;
 
-    @IsISO8601()
-    // @Transform(()=>Date)
-    // @IsDate()
+    
     fecha_alta: Date;
 
-    @IsISO8601()
-    // @Transform(()=>Date)
-    // @IsDate()
+    ultima_actualizacion:Date;
+
+   
     fecha_baja: Date;
     
-    @IsEnum(UsuarioRole)
+    /**
+      * Una lista de roles de usuario
+      * @example ['admin','super'.'normal']
+     */
+    @IsOptional()
+    @IsEnum(UsuarioRole,{
+      message: `No ha introducido un valor valido(${EnumToString(UsuarioRole)})`
+    })
     role: UsuarioRole
 
 }

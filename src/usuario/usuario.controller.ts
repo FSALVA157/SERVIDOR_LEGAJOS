@@ -1,41 +1,58 @@
-import { Body, Get, Param, Put, Post, ParseIntPipe } from '@nestjs/common';
+import { Body, Get, Param, Put, Post, ParseIntPipe, Delete } from '@nestjs/common';
 import { Controller } from '@nestjs/common';
 import { CreateUserDto } from './dto';
+import { EditUserDto } from './dto/edit-user.dto';
+import { UsuarioService } from './usuario.service';
 
 
 @Controller('usuarios')
 export class UsuarioController {
+
+    constructor(
+        private readonly usuarioService: UsuarioService
+    ){}
     
     @Get()
-    getAll(){
-        return {
-            message: "Devolviendo todos los usuarios"
-        }
+    async getAll(){
+        return await this.usuarioService.getMany();
     }
 
     @Get(':id')
-    getOne(
+    async getOne(
         @Param('id',ParseIntPipe)
         id: number
     ){
-        return {
-            message: `Devolviendo un solo usuario según el id= ${id}`
-        }
+        return await this.usuarioService.getOne(id);
     }
 
 
     @Post()
-    create(
+    async create(
         @Body()
         usuarioDto: CreateUserDto
     ){
-        return usuarioDto;
+                
+        return await this.usuarioService.createOne(usuarioDto);
     }
 
     @Put(':id')
-    editOne(
-        id
+    async editOne(
+        @Param('id',ParseIntPipe)
+        id: number,
+        @Body()
+        data: EditUserDto
     ){
+        return await this.usuarioService.editOne(id, data);
+
+    }
+
+    @Delete(':id')
+    async deleteOne(
+        @Param('id',ParseIntPipe)
+        id: number
+        
+    ){
+        return await this.usuarioService.deleteOne(id);
 
     }
 
