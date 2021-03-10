@@ -150,7 +150,9 @@ export class  Personal {
 
     @Column({
         type: "varchar",
-        default: "ARG"
+        length: 10,
+        default: "ARG",
+        nullable: true
              })
     nacionalidad_id : string;
 
@@ -219,8 +221,9 @@ export class  Personal {
 
     @Column({
         type: "int",
+        nullable: true
             })
-    registrado_por_id : number;
+    registrado_por: number;
 
     @Column({
         type: "int",

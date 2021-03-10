@@ -11,7 +11,7 @@ export class  Municipio {
 
     @Column({
         type: "varchar",
-        length: 50
+        length: 200
            })
     municipio: string;
 

@@ -18,5 +18,5 @@ export class  Grado {
     @Column({
         type: "int",
             })
-    jerarqui_id : number;
+    jerarquia_id : number;
         }
