@@ -14,4 +14,10 @@ export class  Departamento {
         length: 200
            })
     departamento: string;
+
+    @Column({
+        type: "int"
+    })
+    destino_id: number;
+
         }

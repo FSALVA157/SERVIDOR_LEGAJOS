@@ -4,7 +4,7 @@ import {Entity, PrimaryGeneratedColumn, Column } from "typeorm";
  * Tabla que contiene las opciones de seccion (primera seccion, segunda seccion, etc)
  */
 @Entity()
-export class  Seccion {
+export class  SeccionGuardia {
 
     @PrimaryGeneratedColumn()
     id_seccion: number;
@@ -14,4 +14,9 @@ export class  Seccion {
         length: 200
            })
     seccion: string;
+
+    @Column({
+       type: "int" 
+    })
+    departamento_id: number;
         }

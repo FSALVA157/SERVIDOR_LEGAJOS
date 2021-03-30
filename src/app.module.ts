@@ -15,7 +15,7 @@ import { DestinoModule } from './destino/destino.module';
 import { DepartamentoModule } from './departamento/departamento.module';
 import { DivisionModule } from './division/division.module';
 import { SectorModule } from './sector/sector.module';
-import { SeccionModule } from './seccion/seccion.module';
+import { SeccionModule } from './seccion-guardia/seccion.module';
 import { EscalafonModule } from './escalafon/escalafon.module';
 import { EscalaJerarquicaModule } from './escala-jerarquica/escala-jerarquica.module';
 import { GradoModule } from './grado/grado.module';

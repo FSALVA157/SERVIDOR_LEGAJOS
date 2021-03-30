@@ -14,4 +14,11 @@ export class  Division {
         length: 100
            })
     division: string;
+    
+    @Column({
+        type: "int"
+    })
+    departamento_id: number;
+
+
         }

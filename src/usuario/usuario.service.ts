@@ -13,14 +13,21 @@ export class UsuarioService {
 constructor(
     @InjectRepository(Usuario)
     private readonly usuarioRepository: Repository<Usuario>
-){
+){}
 
-}
-
+/**
+ * Servicio que devueleve todos los registros de la tabla USUARIOS
+ * @returns 
+ */
 async getMany(){
     return await this.usuarioRepository.findAndCount();
 }
 
+/**
+ * Servicio que devuelve un registro USUARIO según ID
+ * @param id 
+ * @returns 
+ */
 async getOne(id:number){
     try {
         return await this.usuarioRepository.findOneOrFail(id);
@@ -30,6 +37,12 @@ async getOne(id:number){
     }
 }
 
+/**
+ * Servicio que edita un registro USUARIO según id
+ * @param id 
+ * @param data 
+ * @returns 
+ */
 async editOne(id:number, data: EditUserDto){
     
             
@@ -45,12 +58,22 @@ async editOne(id:number, data: EditUserDto){
        
 }
 
+/**
+ * Servicio que elimina un registro USUARIO según ID
+ * @param id 
+ * @returns 
+ */
 async deleteOne(id:number){
     const usuarioSeleccionado = await this.usuarioRepository.findOne(id);
     if(!usuarioSeleccionado) throw new NotFoundException('No existe el Usuario que desea Eliminar');
     return await this.usuarioRepository.remove(usuarioSeleccionado);
 }
 
+/**
+ * Servicio que crea un nuevo Usuario 
+ * @param data 
+ * @returns 
+ */
 async createOne(data: CreateUserDto){
     
         const existe = await this.usuarioRepository.findOne({correo: data.correo});
