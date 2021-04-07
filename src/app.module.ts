@@ -5,7 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsuarioModule } from './usuario/usuario.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { DATABASE_HOST, DATABASE_NAME, DATABASE_PASSWORD, DATABASE_PORT, DATABASE_USERNAME } from "./config/constants";
+import { DATABASE_HOST, DATABASE_NAME, DATABASE_PASSWORD, DATABASE_USERNAME, DATABASE_PORT } from "./config/constants";
 import { PersonalModule } from './personal/personal.module';
 import { AuthModule } from './auth/auth.module';
 import { SituacionModule } from './situacion/situacion.module';
@@ -32,7 +32,9 @@ import { CiudadModule } from './ciudad/ciudad.module';
       useFactory: (config: ConfigService) => ({
         type: 'mysql',
         host: config.get<string>(DATABASE_HOST),
+       // host: "172.20.0.2",
         port: parseInt(config.get<string>(DATABASE_PORT),10),
+        //port: 3306,
         username: config.get<string>(DATABASE_USERNAME),
         password: config.get<string>(DATABASE_PASSWORD),
         database: config.get<string>(DATABASE_NAME),
