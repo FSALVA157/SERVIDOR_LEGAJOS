@@ -1,4 +1,7 @@
-import {Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn, BeforeInsert, BeforeUpdate, CreateDateColumn, UpdateDateColumn} from "typeorm";
+import { Destino } from "src/destino/entities/destino.entity";
+import { Sexo } from "src/sexo/entities/sexo.entity";
+import {Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn, BeforeInsert, BeforeUpdate, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn} from "typeorm";
+import { EstadoCivil } from '../../estado-civil/entities/estado-civil.entity';
 
 /**
  * Tabla que contiene los datos de todo el personal penitenciario 
@@ -82,8 +85,15 @@ export class  Personal {
     @Column({
         type: "int",
         //unsigned: true
-             })
+    })
     sexo_id: number;
+
+    @ManyToOne(type => Sexo,{eager : true})
+    @JoinColumn({
+        name : 'sexo_id',
+        referencedColumnName : 'id_sexo'
+    })
+    sexo : Sexo;
 
     @Column({
         type: "int",
@@ -92,12 +102,26 @@ export class  Personal {
              })
     estado_civil_id: number;
 
+    @ManyToOne(type => EstadoCivil,{eager: true})
+    @JoinColumn({
+        name: 'estado_civil_id',
+        referencedColumnName: 'id_estado_civil'
+    })
+    estado_civil: EstadoCivil;
+
     @Column({
         type: "int",
         //unsigned: true,
         nullable: true
              })
     destino_id: number;
+
+    @ManyToOne(type => Destino, {eager: true})
+    @JoinColumn({
+        name: 'destino_id',
+        referencedColumnName: 'id_destino'
+    })
+    destino: Destino;
 
     @Column({
         type: "int",
