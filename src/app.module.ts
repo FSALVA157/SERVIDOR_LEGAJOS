@@ -24,6 +24,7 @@ import { NivelEducativoModule } from './nivel-educativo/nivel-educativo.module';
 import { ProvinciaModule } from './provincia/provincia.module';
 import { MunicipioModule } from './municipio/municipio.module';
 import { CiudadModule } from './ciudad/ciudad.module';
+import { DepartamentoProvincialModule } from './departamento-provincial/departamento-provincial.module';
 
 @Module({
   imports: [
@@ -65,7 +66,8 @@ import { CiudadModule } from './ciudad/ciudad.module';
     NivelEducativoModule,
     ProvinciaModule,
     MunicipioModule,
-    CiudadModule
+    CiudadModule,
+    DepartamentoProvincialModule
   ],
   controllers: [AppController],
   providers: [AppService],

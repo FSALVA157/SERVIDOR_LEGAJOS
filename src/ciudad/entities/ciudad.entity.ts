@@ -4,7 +4,7 @@ import {Entity, PrimaryGeneratedColumn, Column } from "typeorm";
  * Tabla que contiene las opciones de ciudad (salta, Venado Tuerto, etc,...)
  */
 @Entity()
-export class  Ciudad {
+export class Ciudad {
 
     @PrimaryGeneratedColumn()
     id_ciudad: number;
