@@ -43,6 +43,18 @@ export class  Usuario {
            })
    apellido: string;
 
+   @Column({
+    type: "varchar",
+    length: 100,
+       })
+    img: string;
+
+    @Column({
+        type: "boolean",
+        default: false
+           })
+   google: boolean;
+
    @CreateDateColumn()
    fecha_alta: Date;
 

@@ -1,5 +1,5 @@
 import { UsuarioRole } from '../enums';
-import{IsInt, Min, Length, IsAlphanumeric, MinLength, IsEmail, IsOptional, IsISO8601, Matches, IsEnum, IsString, IsDateString, IsDate} from 'class-validator';
+import{IsInt, Min, Length, IsAlphanumeric, MinLength, IsEmail, IsOptional, IsISO8601, Matches, IsEnum, IsString, IsDateString, IsDate, IsBoolean} from 'class-validator';
 import { EnumToString } from 'src/helpers/enumToString';
 
 export class CreateUserDto {
@@ -24,6 +24,12 @@ export class CreateUserDto {
     @IsString()
     @Length(2,50,{message:'El apellido debe tener entre $constraint1 y $constraint2 caracteres'})
     apellido: string;
+
+    @IsString()
+    img: string;
+
+    @IsBoolean()
+    google: boolean;
 
     
     fecha_alta: Date;
