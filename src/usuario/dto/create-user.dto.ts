@@ -26,12 +26,9 @@ export class CreateUserDto {
     apellido: string;
 
     @IsString()
+    @IsOptional()
     img: string;
 
-    @IsBoolean()
-    google: boolean;
-
-    
     fecha_alta: Date;
 
     ultima_actualizacion:Date;

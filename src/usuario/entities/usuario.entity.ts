@@ -46,14 +46,10 @@ export class  Usuario {
    @Column({
     type: "varchar",
     length: 100,
+    nullable: true
        })
     img: string;
 
-    @Column({
-        type: "boolean",
-        default: false
-           })
-   google: boolean;
 
    @CreateDateColumn()
    fecha_alta: Date;
