@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, MethodNotAllowedException, NotFoundException } from '@nestjs/common';
 import {hash} from 'bcryptjs';
 import { CreateUserDto } from './dto/create-user.dto';
 import { EditUserDto } from './dto/edit-user.dto';
@@ -84,6 +84,13 @@ async createOne(data: CreateUserDto){
         //quitare la contraseña por seguridad
         delete creado.clave;
         return creado;
+}
+
+async getUserByEmail(email: string){
+    
+    return await this.usuarioRepository.findOne({
+        "correo": email
+    });
 }
 
 }

@@ -5,9 +5,7 @@ export class AuthController {
 
 
     @Post('login')
-    login(
-        
-    ){
+    login(){
         return {
             message: "ESTAS AUTENTICADO"
         }

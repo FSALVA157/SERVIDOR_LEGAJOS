@@ -25,6 +25,7 @@ import { ProvinciaModule } from './provincia/provincia.module';
 import { MunicipioModule } from './municipio/municipio.module';
 import { CiudadModule } from './ciudad/ciudad.module';
 import { DepartamentoProvincialModule } from './departamento-provincial/departamento-provincial.module';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [
@@ -67,7 +68,8 @@ import { DepartamentoProvincialModule } from './departamento-provincial/departam
     ProvinciaModule,
     MunicipioModule,
     CiudadModule,
-    DepartamentoProvincialModule
+    DepartamentoProvincialModule,
+    
   ],
   controllers: [AppController],
   providers: [AppService],
