@@ -1,14 +1,17 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards, Request } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller('auth')
 export class AuthController {
 
 
+    @UseGuards(AuthGuard('local'))
     @Post('login')
-    login(){
-        return {
-            message: "ESTAS AUTENTICADO"
-        }
+    async login(
+        @Request()
+        req
+    ){
+        return req.user;
     }
 
     @Get('profile')
