@@ -11,13 +11,15 @@ export class AuthController {
         @Request()
         req
     ){
+        console.log('ENTRANDO POR EL AUTH CONTROLLER');
+        
         return req.user;
     }
 
     @Get('profile')
     profile(){
         return {
-            message: "ESTOS SON TUS DATOS"
+            message: "RESPUESTA DE CONJUNTO DE DATOS!"
         }
     }
 
