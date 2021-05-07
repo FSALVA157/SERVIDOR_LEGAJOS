@@ -11,8 +11,7 @@ export class AuthController {
         @Request()
         req
     ){
-        console.log('ENTRANDO POR EL AUTH CONTROLLER');
-        
+             
         return req.user;
     }
 

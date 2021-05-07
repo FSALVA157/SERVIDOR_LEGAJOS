@@ -11,15 +11,14 @@ export class LocalStrategy extends PassportStrategy(Strategy,"local"){
         private authService: AuthService
     ){
         super({
-            usernameField: "email",
+            usernameField: "correo",
             passwordField: "clave"
         });
     };
 
-    async validate(email: string, clave: string){
-        console.log('ENTRANDO A LOCAL SETRATEGY VALIDATE');
-        let user = null;
-        user = await this.authService.validateUser(email, clave);
+    async validate(correo: string, clave: string){
+         let user = null;
+        user = await this.authService.validateUser(correo, clave);
         if (!user){
             throw new UnauthorizedException("El usuario o la contraseña no coinciden");
     }else{

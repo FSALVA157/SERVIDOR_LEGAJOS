@@ -86,11 +86,12 @@ async createOne(data: CreateUserDto){
         return creado;
 }
 
-async getUserByEmail(email: string){
-    console.log('INGRESANDO A GET USER BY EMAIL');
-    return await this.usuarioRepository.findOne({
-        "correo": email
-    });
+async getUserByEmail(correo: string){
+     return await this.usuarioRepository
+                .createQueryBuilder('user')
+                .where({correo})
+                .addSelect('user.clave')
+                .getOne()
 }
 
 }
