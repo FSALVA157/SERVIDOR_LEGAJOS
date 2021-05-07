@@ -10,7 +10,10 @@ export class LocalStrategy extends PassportStrategy(Strategy,"local"){
     constructor(
         private authService: AuthService
     ){
-        super();
+        super({
+            usernameField: "email",
+            passwordField: "clave"
+        });
     };
 
     async validate(email: string, clave: string){
