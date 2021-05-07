@@ -9,7 +9,9 @@ export class AuthService {
     ){}
 
     async validateUser(email: string, clave: string){
+        console.log('PASANDO POR AUTH SERVICE');
         const user = await this.userService.getUserByEmail(email);
+        console.log('EL USUARIO ES', user);
         (user && user.clave === clave)? user: null;
     }
 

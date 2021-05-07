@@ -87,7 +87,7 @@ async createOne(data: CreateUserDto){
 }
 
 async getUserByEmail(email: string){
-    
+    console.log('INGRESANDO A GET USER BY EMAIL');
     return await this.usuarioRepository.findOne({
         "correo": email
     });
