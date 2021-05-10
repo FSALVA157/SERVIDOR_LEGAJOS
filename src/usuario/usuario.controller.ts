@@ -1,4 +1,4 @@
-import { Body, Get, Param, Put, Post, ParseIntPipe, Delete, UseInterceptors, UploadedFile, UnsupportedMediaTypeException } from '@nestjs/common';
+import { Body, Get, Param, Put, Post, ParseIntPipe, Delete, UseInterceptors, UploadedFile, UnsupportedMediaTypeException, HttpException, HttpStatus } from '@nestjs/common';
 import { Controller } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
@@ -74,7 +74,7 @@ export class UsuarioController {
                  fileFilter: (req, file, cb) => {
                     
                         if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
-                                         return cb(new Error('Formato de archivo inválido (jpg|jpeg|png|gif)'),false);
+                                         return cb(new HttpException('Formato de archivo inválido (jpg|jpeg|png|gif)', HttpStatus.BAD_REQUEST),false);
                                          
                         }
                            cb(null, true);
