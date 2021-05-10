@@ -1,4 +1,4 @@
-import { Body, Get, Param, Put, Post, ParseIntPipe, Delete, UseInterceptors, UploadedFile } from '@nestjs/common';
+import { Body, Get, Param, Put, Post, ParseIntPipe, Delete, UseInterceptors, UploadedFile, UnsupportedMediaTypeException } from '@nestjs/common';
 import { Controller } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
@@ -67,10 +67,19 @@ export class UsuarioController {
                  storage: diskStorage({
                      destination: path.join(__dirname,'../../users-pictures'),
                      filename: (req, file, cb) => {
-       
-                        cb(null, uuid() + path.extname(file.originalname))
-                    }
-                 })
+                               cb(null, uuid() + path.extname(file.originalname))
+                    },
+                    },
+                 ),
+                 fileFilter: (req, file, cb) => {
+                    
+                        if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
+                                         return cb(new Error('Formato de archivo inválido (jpg|jpeg|png|gif)'),false);
+                                         
+                        }
+                           cb(null, true);
+                                               
+                     }
              })   
         )
     cargarFoto(
