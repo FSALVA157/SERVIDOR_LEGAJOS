@@ -94,4 +94,8 @@ async getUserByEmail(correo: string){
                 .getOne()
 }
 
+async putUserPicture(url: string){
+    
+}
+
 }
