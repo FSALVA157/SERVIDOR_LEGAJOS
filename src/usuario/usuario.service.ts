@@ -94,12 +94,17 @@ async getUserByEmail(correo: string){
                 .getOne()
 }
 
+<<<<<<< HEAD
 async cargarFoto(foto_url: string, id: number){
     const user = this.usuarioRepository.findOne({id_usuario: id});
     if(!user){
        return; 
     }
     this.usuarioRepository.
+=======
+async putUserPicture(url: string){
+    
+>>>>>>> 2ba708d3f640e797063024559eaf72ebd079fe76
 }
 
 }

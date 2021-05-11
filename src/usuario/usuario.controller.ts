@@ -1,4 +1,4 @@
-import { Body, Get, Param, Put, Post, ParseIntPipe, Delete, UseInterceptors, UploadedFile, UnsupportedMediaTypeException, HttpException, HttpStatus } from '@nestjs/common';
+import { Body, Get, Param, Put, Post, ParseIntPipe, Delete, UseInterceptors, UploadedFile, UnsupportedMediaTypeException, HttpException, HttpStatus, Req } from '@nestjs/common';
 import { Controller } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
@@ -7,7 +7,7 @@ import { EditUserDto } from './dto/edit-user.dto';
 import { UsuarioService } from './usuario.service';
 import * as path from 'path';
 import { v4 as uuid } from 'uuid';
-
+import {Request} from 'express';
 
 @Controller('usuarios')
 export class UsuarioController {
@@ -84,9 +84,13 @@ export class UsuarioController {
         )
     cargarFoto(
         @UploadedFile()
-        foto: Express.Multer.File    
+        foto: Express.Multer.File,
+        @Req()
+        req: Request,    
     ){
+        const id: number = parseInt(req.query.id.toString());
         console.log(foto);
+        console.log('EL ID RECIBIDO ES: ', id);
     }
 
 }
