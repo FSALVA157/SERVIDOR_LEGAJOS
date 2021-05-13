@@ -1,4 +1,4 @@
-import { Body, Get, Param, Put, Post, ParseIntPipe, Delete, UseInterceptors, UploadedFile, UnsupportedMediaTypeException, HttpException, HttpStatus, Req } from '@nestjs/common';
+import { Body, Get, Param, Put, Post, ParseIntPipe, Delete, UseInterceptors, UploadedFile, UnsupportedMediaTypeException, HttpException, HttpStatus, Req, BadRequestException, Patch } from '@nestjs/common';
 import { Controller } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
@@ -15,6 +15,13 @@ export class UsuarioController {
     constructor(
         private readonly usuarioService: UsuarioService
     ){}
+
+    @Get('picture')
+     getFoto(){
+         return {
+             message: "ENVIANDO FOTO"
+         }
+     }
     
     @Get()
     async getAll(){
@@ -82,15 +89,30 @@ export class UsuarioController {
                      }
              })   
         )
-    cargarFoto(
+    async cargarFoto(
         @UploadedFile()
         foto: Express.Multer.File,
         @Req()
         req: Request,    
     ){
-        const id: number = parseInt(req.query.id.toString());
-        console.log(foto);
-        console.log('EL ID RECIBIDO ES: ', id);
+        try {
+            if(req.query.id === null || foto === null){
+                    throw new Error;
+            }
+            const id: number = parseInt(req.query.id.toString());
+            console.log(foto);
+            return await this.usuarioService.cargarFoto(foto.path, id);
+            
+        } catch (error) {
+            throw new BadRequestException('No olvide adjuntar un archivo imagen y el parámetro id del  usuario!!');
+        }
     }
+
+
+
+
+     
+
+
 
 }

@@ -5,7 +5,24 @@ import { EditUserDto } from './dto/edit-user.dto';
 import { Repository } from "typeorm";
 import { Usuario } from './entities/usuario.entity';
 import { InjectRepository } from '@nestjs/typeorm';
+import * as fs from 'fs-extra';
+import * as path from 'path';
+import { UsuarioRole } from './enums/usuario-role-enums';
 
+
+interface IUsuario {
+    correo: string,
+    clave: string,
+    dni: number,
+    nombre: string,
+    apellido: string,
+    img: string,
+    fecha_alta: Date,
+    ultima_actualizacion:Date,
+    fecha_baja: Date,
+    role: UsuarioRole
+
+}
 
 @Injectable()
 export class UsuarioService {
@@ -44,18 +61,25 @@ async getOne(id:number){
  * @returns 
  */
 async editOne(id:number, data: EditUserDto){
+    try {
+        if(data.img){
+            throw new Error('La foto de usuario solo puede ser modificada por el servicio correspondiente!');
+        }
+        if(data.clave){
+            data.clave = await hash(data.clave,10);
+        }
+     
     
-            
-            if(data.clave){
-                data.clave = await hash(data.clave,10);
-            }
-         
+    const respuesta =  await this.usuarioRepository.update(id, data);
+    
+    if (respuesta.affected == 0) throw new NotFoundException('Error: No se ha actualizado ningun registro')
+    return respuesta;
         
-        const respuesta =  await this.usuarioRepository.update(id, data);
-       
-        if (respuesta.affected == 0) throw new NotFoundException('Error: No se ha actualizado ningun registro')
-        return respuesta;
-       
+    } catch (error) {
+        throw new BadRequestException(error.message);
+    }
+               
+     
 }
 
 /**
@@ -94,13 +118,51 @@ async getUserByEmail(correo: string){
                 .getOne()
 }
 
-<<<<<<< HEAD
 async cargarFoto(foto_url: string, id: number){
-    const user = this.usuarioRepository.findOne({id_usuario: id});
+    const user = await this.usuarioRepository.findOne({id_usuario: id});
     if(!user){
+        throw new NotFoundException('No existe el usuario al que intenta asignar la imagen');
        return; 
     }
-    this.usuarioRepository.
+
+    //si ya existe una foto vamos a eliminarla
+        if(user.img !== null){
+           
+                fs.unlink(path.resolve(user.img)).then().catch(error=>{
+                    console.log(error);
+                });
+           
+        }
+        
+    
+
+
+    let data: EditUserDto = {
+        "img": foto_url
+    };
+    
+    const resultado = await this.usuarioRepository.update(id, data);
+    if(resultado.affected == 0) throw new NotFoundException('No se ha actualizado el campo de imagen');
+    return resultado;
+}
+
+async getFoto(id: number){
+    try {
+        const user: IUsuario = await this.usuarioRepository.findOne({id_usuario: id});
+        if(!user){
+            throw new Error('El Usuario que busca no Existe');
+        }
+        console.log('LA RUTA DE LA IMAGEN BUSCADA ES ', user.img);
+        
+    } catch (error) {
+        throw new BadRequestException(error.message);
+    }
+
+
+}
+
+async deleteFoto(id:number){
+
 }
 
 }
