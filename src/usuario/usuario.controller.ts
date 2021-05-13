@@ -16,11 +16,20 @@ export class UsuarioController {
         private readonly usuarioService: UsuarioService
     ){}
 
-    @Get('picture')
-     getFoto(){
-         return {
-             message: "ENVIANDO FOTO"
-         }
+    @Get('foto')
+     async getFoto(
+         @Req()
+         req: Request
+     ){
+      try {
+          if(!req.query.id){
+              throw new Error('Debe proporcionar el id del Usuario');
+          }
+          const id: number = parseInt(req.query.id.toString());
+          return await this.usuarioService.getFoto(id);
+      } catch (error) {
+          throw new BadRequestException(error.message);
+      }
      }
     
     @Get()
