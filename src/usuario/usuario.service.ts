@@ -8,6 +8,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import { UsuarioRole } from './enums/usuario-role-enums';
+import { Response} from 'express';
+
 
 
 interface IUsuario {
@@ -26,7 +28,7 @@ interface IUsuario {
 
 @Injectable()
 export class UsuarioService {
-
+    res: Response;
 constructor(
     @InjectRepository(Usuario)
     private readonly usuarioRepository: Repository<Usuario>
@@ -152,7 +154,9 @@ async getFoto(id: number){
         if(!user){
             throw new Error('El Usuario que busca no Existe');
         }
-        console.log('LA RUTA DE LA IMAGEN BUSCADA ES ', user.img);
+        const ruta = path.resolve(__dirname,`../../users-pictures/${user.img}` );
+        return ruta;
+        
         
     } catch (error) {
         throw new BadRequestException(error.message);

@@ -1,4 +1,4 @@
-import { Body, Get, Param, Put, Post, ParseIntPipe, Delete, UseInterceptors, UploadedFile, UnsupportedMediaTypeException, HttpException, HttpStatus, Req, BadRequestException, Patch } from '@nestjs/common';
+import { Body, Get, Param, Put, Post, ParseIntPipe, Delete, UseInterceptors, UploadedFile, UnsupportedMediaTypeException, HttpException, HttpStatus, Req, BadRequestException, Patch, Res } from '@nestjs/common';
 import { Controller } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
@@ -7,7 +7,7 @@ import { EditUserDto } from './dto/edit-user.dto';
 import { UsuarioService } from './usuario.service';
 import * as path from 'path';
 import { v4 as uuid } from 'uuid';
-import {Request} from 'express';
+import {Request, Response} from 'express';
 
 @Controller('usuarios')
 export class UsuarioController {
@@ -19,14 +19,22 @@ export class UsuarioController {
     @Get('foto')
      async getFoto(
          @Req()
-         req: Request
+         req: Request,
+         @Res()
+         res: Response
      ){
       try {
           if(!req.query.id){
               throw new Error('Debe proporcionar el id del Usuario');
           }
           const id: number = parseInt(req.query.id.toString());
-          return await this.usuarioService.getFoto(id);
+          
+              const ruta = await this.usuarioService.getFoto(id);
+              console.log('LA RUTA ES >>>>>>', ruta);
+              res.sendFile(ruta);
+          
+        
+          
       } catch (error) {
           throw new BadRequestException(error.message);
       }
@@ -110,7 +118,7 @@ export class UsuarioController {
             }
             const id: number = parseInt(req.query.id.toString());
             console.log(foto);
-            return await this.usuarioService.cargarFoto(foto.path, id);
+            return await this.usuarioService.cargarFoto(foto.filename, id);
             
         } catch (error) {
             throw new BadRequestException('No olvide adjuntar un archivo imagen y el parámetro id del  usuario!!');
