@@ -24,13 +24,33 @@ export class UsuarioController {
          res: Response
      ){
       try {
+          if(!req.query.foto_nombre){
+              throw new Error('Debe proporcionar el nombre de la foto del Usuario');
+          }
+          const nombre_foto: string = req.query.foto_nombre.toString();
+          
+              const ruta = this.usuarioService.getFoto(nombre_foto);
+              res.sendFile(ruta);
+                   
+      } catch (error) {
+          throw new BadRequestException(error.message);
+      }
+     }
+
+    @Get('/id/foto')
+     async getFotobyIdUsuario(
+         @Req()
+         req: Request,
+         @Res()
+         res: Response
+     ){
+      try {
           if(!req.query.id){
               throw new Error('Debe proporcionar el id del Usuario');
           }
           const id: number = parseInt(req.query.id.toString());
           
-              const ruta = await this.usuarioService.getFoto(id);
-              console.log('LA RUTA ES >>>>>>', ruta);
+              const ruta = await this.usuarioService.getFotoByIdUsuario(id);
               res.sendFile(ruta);
           
         

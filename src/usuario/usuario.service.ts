@@ -148,7 +148,20 @@ async cargarFoto(foto_url: string, id: number){
     return resultado;
 }
 
-async getFoto(id: number){
+getFoto(nombre_foto: string){
+    try {
+        const ruta = path.resolve(__dirname,`../../users-pictures/${nombre_foto}` );
+        return ruta;
+        
+        
+    } catch (error) {
+        throw new BadRequestException(error.message);
+    }
+
+
+}
+
+async getFotoByIdUsuario(id: number){
     try {
         const user: IUsuario = await this.usuarioRepository.findOne({id_usuario: id});
         if(!user){
