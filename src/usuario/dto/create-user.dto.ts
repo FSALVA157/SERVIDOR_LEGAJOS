@@ -25,6 +25,9 @@ export class CreateUserDto {
     @Length(2,50,{message:'El apellido debe tener entre $constraint1 y $constraint2 caracteres'})
     apellido: string;
 
+    @IsInt({message: 'El destino es un numero Entero'})
+    destino_id: number;
+
     @IsString()
     @IsOptional()
     img: string;

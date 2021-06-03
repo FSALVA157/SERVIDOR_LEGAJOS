@@ -50,6 +50,13 @@ export class  Usuario {
        })
     img: string;
 
+    @Column({
+        type: "int",
+        unsigned: true,
+        nullable: false
+     })
+    destino_id: number;
+
 
    @CreateDateColumn()
    fecha_alta: Date;
