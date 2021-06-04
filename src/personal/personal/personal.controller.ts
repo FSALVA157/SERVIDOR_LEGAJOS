@@ -6,15 +6,16 @@ import * as path from 'path';
 import { v4 as uuid } from 'uuid';
 import {Request, Response} from 'express';
 
-import { CreateUserDto } from './dto';
-import { EditUserDto } from './dto/edit-user.dto';
-import { UsuarioService } from './usuario.service';
 
-@Controller('usuarios')
-export class UsuarioController {
 
+
+import { PersonalService } from './personal.service';
+
+@Controller('personal')
+export class PersonalController {
+    
     constructor(
-        private readonly usuarioService: UsuarioService
+        private readonly personalService: PersonalService
     ){}
 
     @Get('foto')
@@ -30,7 +31,7 @@ export class UsuarioController {
           }
           const nombre_foto: string = req.query.foto_nombre.toString();
           
-              const ruta = this.usuarioService.getFoto(nombre_foto);
+              const ruta = this.personalService.getFoto(nombre_foto);
               res.sendFile(ruta);
                    
       } catch (error) {
@@ -51,7 +52,7 @@ export class UsuarioController {
           }
           const id: number = parseInt(req.query.id.toString());
           
-              const ruta = await this.usuarioService.getFotoByIdUsuario(id);
+              const ruta = await this.personalService.getFotoByIdUsuario(id);
               res.sendFile(ruta);
           
         
@@ -63,7 +64,7 @@ export class UsuarioController {
     
     @Get()
     async getAll(){
-        return await this.usuarioService.getMany();
+        return await this.personalService.getMany();
     }
 
     @Get(':id')
@@ -71,7 +72,7 @@ export class UsuarioController {
         @Param('id',ParseIntPipe)
         id: number
     ){
-        return await this.usuarioService.getOne(id);
+        return await this.personalService.getOne(id);
     }
 
 
@@ -81,7 +82,7 @@ export class UsuarioController {
         usuarioDto: CreateUserDto
     ){
                 
-        return await this.usuarioService.createOne(usuarioDto);
+        return await this.personalService.createOne(usuarioDto);
     }
 
     @Put(':id')
@@ -91,7 +92,7 @@ export class UsuarioController {
         @Body()
         data: EditUserDto
     ){
-        return await this.usuarioService.editOne(id, data);
+        return await this.personalService.editOne(id, data);
 
     }
 
@@ -101,7 +102,7 @@ export class UsuarioController {
         id: number
         
     ){
-        return await this.usuarioService.deleteOne(id);
+        return await this.personalService.deleteOne(id);
 
     }
 
@@ -139,18 +140,10 @@ export class UsuarioController {
             }
             const id: number = parseInt(req.query.id.toString());
             console.log(foto);
-            return await this.usuarioService.cargarFoto(foto.filename, id);
+            return await this.personalService.cargarFoto(foto.filename, id);
             
         } catch (error) {
             throw new BadRequestException('No olvide adjuntar un archivo imagen y el parámetro id del  usuario!!');
         }
     }
-
-
-
-
-     
-
-
-
 }
