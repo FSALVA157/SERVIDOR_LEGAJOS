@@ -1,7 +1,11 @@
 import { Injectable, BadRequestException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Personal } from '../entities/personal.entity';
+import { Personal } from './entities/personal.entity';
 import { Repository } from 'typeorm';
+import { EditPersonalDto } from './dto/edit-personal.dto';
+import { CreatePersonalDto } from './dto/create-personal.dto';
+import * as fs from 'fs-extra';
+import * as path from 'path';
 
 interface IPersonal{
     apellido_1: string,
@@ -26,7 +30,7 @@ interface IPersonal{
     escalafon_id: number,
     escala_jerarquica_id: number,
     grado_id: number,
-    nacionalidad_id: string,
+    nacionalidad: string,
     domicilio: string,
     provincia_id: number,
     municipio_id: number,
@@ -38,7 +42,7 @@ interface IPersonal{
     nivel_educativo_id: number,
     registrado_por: number,
     situacion_id: number,
-
+    foto: string
 }
 
 @Injectable()
@@ -67,13 +71,13 @@ async getMany(destino_usuario: number){
 }
 
 /**
- * Servicio que devuelve un registro USUARIO según ID
- * @param id 
+ * Servicio que devuelve un registro de personal según legajo
+ * @param legajo
  * @returns 
  */
-async getOne(id:number){
+async getOne(legajo:number){
     try {
-        return await this.personalRepository.findOneOrFail(id);
+        return await this.personalRepository.findOneOrFail({where: [{legajo}]});
     } catch (error) {
       throw new NotFoundException('El Personal buscado  No Existe',error);
 
@@ -86,15 +90,12 @@ async getOne(id:number){
  * @param data 
  * @returns 
  */
-async editOne(id:number, data: EditUserDto){
+async editOne(id:number, data: EditPersonalDto){
     try {
-        if(data.img){
-            throw new Error('La foto de usuario solo puede ser modificada por el servicio correspondiente!');
+        if(data.foto){
+            throw new Error('La foto del personal  solo puede ser modificada por el servicio correspondiente!');
         }
-        if(data.clave){
-            data.clave = await hash(data.clave,10);
-        }
-     
+             
     
     const respuesta =  await this.personalRepository.update(id, data);
     
@@ -114,9 +115,9 @@ async editOne(id:number, data: EditUserDto){
  * @returns 
  */
 async deleteOne(id:number){
-    const usuarioSeleccionado = await this.personalRepository.findOne(id);
-    if(!usuarioSeleccionado) throw new NotFoundException('No existe el Usuario que desea Eliminar');
-    return await this.personalRepository.remove(usuarioSeleccionado);
+    const personalSeleccionado = await this.personalRepository.findOne(id);
+    if(!personalSeleccionado) throw new NotFoundException('No existe el Peronal que desea Eliminar');
+    return await this.personalRepository.remove(personalSeleccionado);
 }
 
 /**
@@ -124,57 +125,67 @@ async deleteOne(id:number){
  * @param data 
  * @returns 
  */
-async createOne(data: CreateUserDto){
+async createOne(data: CreatePersonalDto){
     
-        const existe = await this.personalRepository.findOne({correo: data.correo});
-        console.log('USUARIO ENCONTRADO',existe);
-        if(existe) throw new BadRequestException('El email que intenta utilizar ya se encuentra utilizado!');
+        const existe = await this.personalRepository.findOne({legajo: data.legajo});
+        if(existe) throw new BadRequestException('Ya existe un personal con el legajo que intenta utilizar!');
         const nuevo = this.personalRepository.create(data);
         const creado =  await this.personalRepository.save(nuevo);
-        //quitare la contraseña por seguridad
-        delete creado.clave;
         return creado;
 }
 
-async getUserByEmail(correo: string){
-     return await this.personalRepository
-                .createQueryBuilder('user')
-                .where({correo})
-                .addSelect('user.clave')
-                .getOne()
+/**
+ * Servicio que retorna un registro de personal segun legajo
+ * @param legajo 
+ * @returns 
+ */
+async getPersonalByLegajo(legajo: number){
+    return await this.personalRepository.findOne({where: [{legajo}]});
+    //  return await this.personalRepository
+    //             .createQueryBuilder('personal')
+    //             .where({legajo})
+    //             .getOne()
 }
 
+/**
+ * Servicio que carga la foto de un personal según id
+ * utiliza un parámetro nombre de foto para la ruta
+ * @param foto_url 
+ * @param id 
+ * @returns 
+ */
 async cargarFoto(foto_url: string, id: number){
-    const user = await this.personalRepository.findOne({id_usuario: id});
-    if(!user){
-        throw new NotFoundException('No existe el usuario al que intenta asignar la imagen');
-       return; 
-    }
+    const personal = await this.personalRepository.findOne({id_personal: id});
+    if(!personal){
+        throw new NotFoundException('No existe el personal al que intenta asignar la imagen');
+       }
 
     //si ya existe una foto vamos a eliminarla
-        if(user.img !== null){
+        if(personal.foto !== null){
            
-                fs.unlink(path.resolve(user.img)).then().catch(error=>{
-                    console.log(error);
+                fs.unlink(path.resolve(personal.foto)).then().catch(error=>{
+                    throw new NotFoundException(error.message);
                 });
            
         }
-        
-    
-
-
-    let data: EditUserDto = {
-        "img": foto_url
+      
+    let data: EditPersonalDto = {
+        "foto": foto_url
     };
     
     const resultado = await this.personalRepository.update(id, data);
-    if(resultado.affected == 0) throw new NotFoundException('No se ha actualizado el campo de imagen');
+    if(resultado.affected == 0) throw new NotFoundException('No se ha actualizado el campo foto');
     return resultado;
 }
 
+/**
+ * Servicio que regresa una foto utilizando como parámetro el nombre de la foto
+ * @param nombre_foto 
+ * @returns 
+ */
 getFoto(nombre_foto: string){
     try {
-        const ruta = path.resolve(__dirname,`../../users-pictures/${nombre_foto}` );
+        const ruta = path.resolve(__dirname,`../../personal-fotos/${nombre_foto}` );
         return ruta;
         
         
@@ -185,13 +196,18 @@ getFoto(nombre_foto: string){
 
 }
 
-async getFotoByIdUsuario(id: number){
+/**
+ * Servicio que regresa una foto según el legajo del personal
+ * @param legajo 
+ * @returns 
+ */
+async getFotoByLegajoPersonal(legajo: number){
     try {
-        const user: IUsuario = await this.personalRepository.findOne({id_usuario: id});
-        if(!user){
+        const personal: IPersonal = await this.personalRepository.findOne({legajo});
+        if(!personal){
             throw new Error('El Usuario que busca no Existe');
         }
-        const ruta = path.resolve(__dirname,`../../users-pictures/${user.img}` );
+        const ruta = path.resolve(__dirname,`../../personal-fotos/${personal.foto}` );
         return ruta;
         
         
@@ -202,12 +218,6 @@ async getFotoByIdUsuario(id: number){
 
 }
 
-async deleteFoto(id:number){
-
-}
-
-
-
-
+async deleteFoto(id:number){}
 
 }

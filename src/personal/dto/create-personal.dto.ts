@@ -1,5 +1,5 @@
-import{IsInt, Min, Length, IsOptional, IsISO8601, Matches, IsString, IsDecimal} from 'class-validator';
-import {Transform} from 'class-transformer';
+import{IsInt, Min, Length, IsOptional, IsISO8601, Matches, IsString, IsDecimal, IsDateString} from 'class-validator';
+
 
 export class CreatePersonalDto {
     
@@ -31,18 +31,15 @@ export class CreatePersonalDto {
     dni: number;
 
     @IsOptional()
-    @IsISO8601()
-    @Transform(()=>Date)
+    @IsDateString()
     fecha_nacimiento: Date;
 
     @IsOptional()
-    @IsISO8601()
-    @Transform(()=>Date)
+    @IsDateString()
     fecha_ingreso: Date;
 
     @IsOptional()
-    @IsISO8601()
-    @Transform(()=>Date)
+    @IsDateString()
     ultimo_ascenso: Date;
 
     @IsInt({message:'El legajo debe ser una clave entera'})
@@ -98,9 +95,8 @@ export class CreatePersonalDto {
     grado_id: number;
 
     @IsString()
-    @Length(1,10,{message:'La nacionalidad es una clave texto que debe tener entre $constraint1 y $constraint2 caracteres'})
     @IsOptional()
-    nacionalidad_id: string;
+    nacionalidad: string;
 
     @IsString()
     @Length(1,300,{message:'El domicilio debe tener entre $constraint1 y $constraint2 caracteres'})
@@ -133,7 +129,7 @@ export class CreatePersonalDto {
     @IsOptional()
     altura: number;
 
-    @IsDecimal()
+    
     @IsOptional()
     peso: number;
 
@@ -148,5 +144,9 @@ export class CreatePersonalDto {
     @IsInt({message:'La situacion del personal es una clave entera'})
     @IsOptional()
     situacion_id: number;
+
+    @IsString()
+    @IsOptional()
+    foto: string;
 
 }

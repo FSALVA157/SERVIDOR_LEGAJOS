@@ -340,6 +340,13 @@ export class  Personal {
              })
     situacion_id : number;
 
+    @Column({
+        type: "varchar",
+        length: 100,
+        nullable: true
+           })
+    foto: string;
+
    @CreateDateColumn()
    fecha_alta: Date;
 

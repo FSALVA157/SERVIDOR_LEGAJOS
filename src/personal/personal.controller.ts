@@ -6,10 +6,9 @@ import * as path from 'path';
 import { v4 as uuid } from 'uuid';
 import {Request, Response} from 'express';
 
-
-
-
 import { PersonalService } from './personal.service';
+import { CreatePersonalDto } from './dto';
+import { EditPersonalDto } from './dto/edit-personal.dto';
 
 @Controller('personal')
 export class PersonalController {
@@ -27,7 +26,7 @@ export class PersonalController {
      ){
       try {
           if(!req.query.foto_nombre){
-              throw new Error('Debe proporcionar el nombre de la foto del Usuario');
+              throw new Error('Debe proporcionar el nombre de la foto del Personal');
           }
           const nombre_foto: string = req.query.foto_nombre.toString();
           
@@ -40,49 +39,49 @@ export class PersonalController {
      }
 
     @Get('/id/foto')
-     async getFotobyIdUsuario(
+     async getFotobyLegajoPersonal(
          @Req()
          req: Request,
          @Res()
          res: Response
      ){
       try {
-          if(!req.query.id){
-              throw new Error('Debe proporcionar el id del Usuario');
+          if(!req.query.legajo){
+              throw new Error('Debe proporcionar el legajo del Personal');
           }
-          const id: number = parseInt(req.query.id.toString());
-          
-              const ruta = await this.personalService.getFotoByIdUsuario(id);
-              res.sendFile(ruta);
-          
-        
+             const legajo: number = parseInt(req.query.legajo.toString());
+             const ruta = await this.personalService.getFotoByLegajoPersonal(legajo);
+             res.sendFile(ruta);                 
           
       } catch (error) {
           throw new BadRequestException(error.message);
       }
      }
     
-    @Get()
-    async getAll(){
-        return await this.personalService.getMany();
+    @Get(':destino')
+    async getAll(
+        @Param('destino',ParseIntPipe)
+        destino:number
+    ){
+        return await this.personalService.getMany(destino);
     }
 
-    @Get(':id')
+    @Get(':legajo')
     async getOne(
-        @Param('id',ParseIntPipe)
-        id: number
+        @Param('legajo',ParseIntPipe)
+        legajo: number
     ){
-        return await this.personalService.getOne(id);
+        return await this.personalService.getOne(legajo);
     }
 
 
     @Post()
     async create(
         @Body()
-        usuarioDto: CreateUserDto
+        personalDto: CreatePersonalDto
     ){
                 
-        return await this.personalService.createOne(usuarioDto);
+        return await this.personalService.createOne(personalDto);
     }
 
     @Put(':id')
@@ -90,7 +89,7 @@ export class PersonalController {
         @Param('id',ParseIntPipe)
         id: number,
         @Body()
-        data: EditUserDto
+        data: EditPersonalDto
     ){
         return await this.personalService.editOne(id, data);
 
@@ -111,7 +110,7 @@ export class PersonalController {
          FileInterceptor(
              'foto',{
                  storage: diskStorage({
-                     destination: path.join(__dirname,'../../users-pictures'),
+                     destination: path.join(__dirname,'../../personal-fotos'),
                      filename: (req, file, cb) => {
                                cb(null, uuid() + path.extname(file.originalname))
                     },
