@@ -125,7 +125,10 @@ export class CreatePersonalDto {
     @Length(4,50,{message:'El email debe tener entre $constraint1 y $constraint2 caracteres en este momento tu texto tiene una longitud de $value letras'})
     email: string;
 
-    @IsDecimal()
+    @IsDecimal({
+        decimal_digits: '2',
+
+    })
     @IsOptional()
     altura: number;
 
