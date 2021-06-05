@@ -14,4 +14,9 @@ export class  Sector {
         length: 200
            })
     sector: string;
+
+    @Column({
+        type: "int",
+            })
+    division_id : number;
         }

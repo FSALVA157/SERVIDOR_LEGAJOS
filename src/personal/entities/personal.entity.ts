@@ -108,7 +108,7 @@ export class  Personal {
     @Column({
         type: "int",
         //unsigned: true,
-        nullable: true
+        // nullable: true
              })
     estado_civil_id: number;
 
@@ -122,8 +122,7 @@ export class  Personal {
     @Column({
         type: "int",
         //unsigned: true,
-        nullable: true
-             })
+            })
     destino_id: number;
 
     @ManyToOne(type => Destino, {eager: true})
@@ -135,8 +134,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
-             })
+            })
     departamento_id : number;
 
     @ManyToOne(type => Departamento, {eager: true})
@@ -148,20 +146,19 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
-             })
+            })
     division_id : number;
 
     @ManyToOne(type => Division,{eager: true})
     @JoinColumn({
-
+        name: "division_id",
+        referencedColumnName: "id_division"
     })
     division: Division;
 
     @Column({
         type: "int",
-        nullable: true
-             })
+            })
     sector_id : number;
 
     @ManyToOne(type => Sector, {eager: true})
