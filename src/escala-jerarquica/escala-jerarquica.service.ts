@@ -73,7 +73,7 @@ export class EscalaJerarquicaService {
         try {
             const existe = await this.escalaRepository.findOne(id);
             if(!existe){
-                throw new BadRequestException("El usuario que intenta eliminar no existe");
+                throw new BadRequestException("La escala que intenta eliminar no existe");
                  }
             return await this.escalaRepository.remove(existe);
         } catch (error) {
