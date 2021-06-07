@@ -11,7 +11,8 @@ export class  Sector {
 
     @Column({
         type: "varchar",
-        length: 200
+        length: 200,
+        unique: true
            })
     sector: string;
 

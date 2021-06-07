@@ -38,9 +38,17 @@ export class SexoService {
     }
 
     async editOne(id: number, data: EditSexoDto){
-        const respuesta = await this.sexoRepository.update(id,data);
-        if((await respuesta).affected == 0) throw new NotFoundException("No existe el registro de Sexo que intenta modificar");
-        return respuesta;
+        try {
+            const existe = await this.sexoRepository.findOne({sexo: data.sexo});
+            if(existe){
+                throw new Error('El registro que desea crear/editar ya existe');
+            }
+            const respuesta = await this.sexoRepository.update(id,data);
+            if((await respuesta).affected == 0) throw new NotFoundException("No existe el registro de Sexo que intenta modificar");
+            return respuesta;
+        } catch (error) {
+            throw new BadRequestException(error);
+        }
     }
 
     /**

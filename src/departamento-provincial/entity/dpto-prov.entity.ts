@@ -12,7 +12,8 @@ export class DepartamentoProvincial {
 
     @Column({
         type: "varchar",
-        length: 50
+        length: 50, 
+        unique: true
            })
     departamento_provincial: string;
 }

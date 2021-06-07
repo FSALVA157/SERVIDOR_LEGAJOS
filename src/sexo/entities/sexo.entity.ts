@@ -11,7 +11,8 @@ export class  Sexo {
 
     @Column({
         type: "varchar",
-        length: 50
+        length: 50, 
+        unique: true
            })
     sexo: string;
         }

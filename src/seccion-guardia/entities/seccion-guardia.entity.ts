@@ -11,7 +11,8 @@ export class  SeccionGuardia {
 
     @Column({
         type: "varchar",
-        length: 200
+        length: 200,
+        unique: true
            })
     seccion: string;
 

@@ -11,7 +11,8 @@ export class  Jerarquia {
 
     @Column({
         type: "varchar",
-        length: 100
+        length: 100,
+        unique: true
            })
     jerarquia: string;
         }

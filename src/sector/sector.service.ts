@@ -31,6 +31,10 @@ export class SectorService {
      */
     async getOne(id: number){
         try {
+            const existe = await this.sectorRepository.findOne(id);
+            if(!existe){
+                throw new Error('No Existe el registro buscado');
+            }
             return await this.sectorRepository.findOneOrFail(id);
         } catch (error) {
             throw new BadRequestException(error.message);
@@ -47,7 +51,7 @@ export class SectorService {
         try {
             return this.sectorRepository.update(id, data);
         } catch (error) {
-            throw new BadRequestException(error.message);
+              throw new BadRequestException(error.message);
         }
     }
 

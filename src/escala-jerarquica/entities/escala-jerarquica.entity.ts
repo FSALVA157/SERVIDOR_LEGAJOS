@@ -11,7 +11,8 @@ export class  EscalaJerarquica {
 
     @Column({
         type: "varchar",
-        length: 200
+        length: 200,
+        unique: true
            })
     escala_jerarquica: string;
         }

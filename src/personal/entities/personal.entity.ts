@@ -57,7 +57,8 @@ export class  Personal {
 
     @Column({
         type: "int",
-        unsigned: true
+        unsigned: true,
+        unique: true
              })
     dni: number;
 
@@ -81,7 +82,8 @@ export class  Personal {
 
     @Column({
         type: "int",
-        unsigned: true
+        unsigned: true,
+        unique: true
            })
     legajo: number;
 
@@ -89,6 +91,7 @@ export class  Personal {
         type: "varchar",
         length: 50,
         nullable: true,
+        unique: true
            })
     cuil: string;
 

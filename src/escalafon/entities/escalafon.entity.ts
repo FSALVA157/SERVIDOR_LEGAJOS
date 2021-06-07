@@ -11,7 +11,8 @@ export class  Escalafon {
 
     @Column({
         type: "varchar",
-        length: 200
+        length: 200,
+        unique: true
            })
     escalafon: string;
         }

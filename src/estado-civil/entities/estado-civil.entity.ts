@@ -12,7 +12,8 @@ export class EstadoCivil {
 
     @Column({
         type: "varchar",
-        length: 50
+        length: 50,
+        unique: true
            })
     estado_civil: string;
 }

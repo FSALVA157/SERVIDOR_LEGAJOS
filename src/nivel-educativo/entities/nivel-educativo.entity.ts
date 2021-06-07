@@ -11,7 +11,8 @@ export class  NivelEducativo {
 
     @Column({
         type: "varchar",
-        length: 100
+        length: 100,
+        unique: true
            })
     nivel_educativo: string;
         }
