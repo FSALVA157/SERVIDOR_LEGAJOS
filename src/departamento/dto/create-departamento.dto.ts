@@ -1,4 +1,4 @@
-import{ Length, IsString, IsInt} from 'class-validator';
+import{ Length, IsString, IsInt, IsOptional} from 'class-validator';
 
 
 export class CreateDepartamentoDto {
@@ -8,6 +8,7 @@ export class CreateDepartamentoDto {
     departamento: string;
     
     @IsInt()
+    @IsOptional()
     destino_id: number;
      
 

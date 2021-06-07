@@ -121,8 +121,9 @@ export class  Personal {
 
     @Column({
         type: "int",
-        //unsigned: true,
-            })
+        //el valor default 8 corresponde a "sin destino" si ese registro cambia debe corregirse este default
+        default: 8,
+             })
     destino_id: number;
 
     @ManyToOne(type => Destino, {eager: true})
@@ -134,6 +135,8 @@ export class  Personal {
 
     @Column({
         type: "int",
+        //el valor default 3 corresponde a "sin destino" si ese registro cambia debe corregirse este default
+        default: 3
             })
     departamento_id : number;
 
@@ -146,6 +149,8 @@ export class  Personal {
 
     @Column({
         type: "int",
+        //el valor default 3 corresponde a "sin destino" si ese registro cambia debe corregirse este default
+        default: 5
             })
     division_id : number;
 
@@ -158,6 +163,8 @@ export class  Personal {
 
     @Column({
         type: "int",
+         //el valor default 1 corresponde a "sin destino" si ese registro cambia debe corregirse este default
+         default: 1
             })
     sector_id : number;
 
@@ -170,16 +177,17 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
+         //el valor default 1 corresponde a "sin seccion" si ese registro cambia debe corregirse este default
+         default: 1
              })
-    seccion_id : number;
+    seccion_guardia_id : number;
 
     @ManyToOne(type => SeccionGuardia, {eager: true})
     @JoinColumn({
-        name: 'seccion_id',
+        name: 'seccion_guardia_id',
         referencedColumnName: 'id_seccion'
     })
-    seccion: SeccionGuardia
+    seccion_guardia: SeccionGuardia
 
     @Column({
         type: "varchar",

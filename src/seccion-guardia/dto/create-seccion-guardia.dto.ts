@@ -1,4 +1,4 @@
-import{ Length, IsString, IsInt} from 'class-validator';
+import{ Length, IsString, IsInt, IsOptional} from 'class-validator';
 
 
 export class CreateSeccionGuardiaDto {
@@ -8,6 +8,7 @@ export class CreateSeccionGuardiaDto {
     seccion: string;
     
     @IsInt()
+    @IsOptional()
     departamento_id: number;
 
 }

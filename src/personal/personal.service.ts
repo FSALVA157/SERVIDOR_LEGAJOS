@@ -25,7 +25,7 @@ interface IPersonal{
     departamento_id: number,
     division_id: number,
     sector_id: number,
-    seccion_id: number,
+    seccion_guardia_id: number,
     funcion: string,
     escalafon_id: number,
     escala_jerarquica_id: number,

@@ -2,116 +2,135 @@
 > cuerpo@0.0.1 start C:\Users\xxavier\Desktop\NestJsWorkspace\cuerpo _docker
 > nest start
 
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +131ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mPersonalModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mSectorModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mEscalafonModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mEscalaJerarquicaModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mGradoModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mJerarquiaModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mNivelEducativoModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mProvinciaModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mMunicipioModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:33 PM   [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmCoreModule dependencies initialized[39m[38;5;3m +2589ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mUsuarioModule dependencies initialized[39m[38;5;3m +5ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mSituacionModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mSexoModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mEstadoCivilModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mDestinoModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mDepartamentoModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mDivisionModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mSeccionModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mCiudadModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mDepartamentoProvincialModule dependencies initialized[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mAppController {}:[39m[38;5;3m +236ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {, GET} route[39m[38;5;3m +3ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mUsuarioController {/usuarios}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios, GET} route[39m[38;5;3m +2ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios/:id, GET} route[39m[38;5;3m +2ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios, POST} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios/:id, PUT} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios/:id, DELETE} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/profile, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mSituacionController {/situacion}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/situacion, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/situacion/:id, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/situacion, POST} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/situacion/:id, PUT} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/situacion/:id, DELETE} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mSexoController {/sexo}:[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sexo, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sexo/:id, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sexo, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sexo/:id, PUT} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sexo/:id, DELETE} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mEstadoCivilController {/estado-civil}:[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/estado-civil, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/estado-civil/:id, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/estado-civil, POST} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/estado-civil/:id, PUT} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/estado-civil/:id, DELETE} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mDestinoController {/destino}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/destino, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/destino/:id, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/destino, POST} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/destino/:id, PUT} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/destino/:id, DELETE} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mDepartamentoController {/departamento}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento/:id, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento/:id, PUT} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento/:id, DELETE} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mDivisionController {/division}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/division, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/division/:id, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/division, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/division/:id, PUT} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/division/:id, DELETE} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mSeccionGuardiaController {/seccion-guardia}:[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/seccion-guardia, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/seccion-guardia/:id, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/seccion-guardia, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/seccion-guardia/:id, PUT} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/seccion-guardia/:id, DELETE} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mCiudadController {/ciudad}:[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/ciudad, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/ciudad/:id, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/ciudad, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/ciudad/:id, PUT} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/ciudad/:id, DELETE} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RoutesResolver] [39m[32mDepartamentoProvincialController {/departamento-provincial}:[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento-provincial, GET} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento-provincial/:id, GET} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento-provincial, POST} route[39m[38;5;3m +0ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento-provincial/:id, PUT} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento-provincial/:id, DELETE} route[39m[38;5;3m +1ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +7ms[39m
-[32m[Nest] 9904   - [39m05/08/2021, 8:00:36 PM   [32mcorriendo el servidor http://[::1]:3000[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +86ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mEscalafonModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mEscalaJerarquicaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mGradoModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mJerarquiaModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mNivelEducativoModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mProvinciaModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mMunicipioModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:39:58 AM   [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmCoreModule dependencies initialized[39m[38;5;3m +6910ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mTypeOrmModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mUsuarioModule dependencies initialized[39m[38;5;3m +9ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mPersonalModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mSituacionModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mSexoModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mEstadoCivilModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mDestinoModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mDepartamentoModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mDivisionModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mSectorModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mSeccionModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mCiudadModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mDepartamentoProvincialModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mAppController {}:[39m[38;5;3m +245ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mUsuarioController {/usuarios}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios/foto, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios/id/foto, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/usuarios/foto, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mPersonalController {/personal}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/personal/foto, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/personal/id/foto, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/personal/:destino, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/personal/:legajo, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/personal, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/personal/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/personal/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/personal/foto, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mSituacionController {/situacion}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/situacion, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/situacion/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/situacion, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/situacion/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/situacion/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mSexoController {/sexo}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sexo, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sexo/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sexo, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sexo/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sexo/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mEstadoCivilController {/estado-civil}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/estado-civil, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/estado-civil/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/estado-civil, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/estado-civil/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/estado-civil/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mDestinoController {/destino}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/destino, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/destino/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/destino, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/destino/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/destino/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mDepartamentoController {/departamento}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mDivisionController {/division}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/division, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/division/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/division, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/division/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/division/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mSectorController {/sector}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sector, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sector/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sector, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sector/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/sector/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mSeccionGuardiaController {/seccion-guardia}:[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/seccion-guardia, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/seccion-guardia/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/seccion-guardia, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/seccion-guardia/:id, PUT} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/seccion-guardia/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mCiudadController {/ciudad}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/ciudad, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/ciudad/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/ciudad, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/ciudad/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/ciudad/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RoutesResolver] [39m[32mDepartamentoProvincialController {/departamento-provincial}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento-provincial, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento-provincial/:id, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento-provincial, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento-provincial/:id, PUT} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:05 AM   [38;5;3m[RouterExplorer] [39m[32mMapped {/departamento-provincial/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:06 AM   [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +8ms[39m
+[32m[Nest] 9768   - [39m06/06/2021, 9:40:06 AM   [32mcorriendo el servidor http://[::1]:3000[39m
+Terminate batch job (Y/N)? 

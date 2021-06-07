@@ -16,7 +16,8 @@ export class  Departamento {
     departamento: string;
 
     @Column({
-        type: "int"
+        type: "int",
+        nullable: true
     })
     destino_id: number;
 

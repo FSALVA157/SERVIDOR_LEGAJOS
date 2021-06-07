@@ -16,9 +16,8 @@ export class  Division {
     division: string;
     
     @Column({
-        type: "int"
+        type: "int",
+        nullable: true
     })
     departamento_id: number;
-
-
         }

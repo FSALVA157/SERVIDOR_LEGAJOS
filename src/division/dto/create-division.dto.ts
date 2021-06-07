@@ -1,4 +1,4 @@
-import{ Length, IsString, IsInt} from 'class-validator';
+import{ Length, IsString, IsInt, IsOptional} from 'class-validator';
 
 
 export class CreateDivisionDto {
@@ -8,6 +8,7 @@ export class CreateDivisionDto {
     division: string;
 
     @IsInt()
+    @IsOptional()
     departamento_id: number;
     
 }

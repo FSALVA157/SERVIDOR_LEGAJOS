@@ -17,6 +17,7 @@ export class  Sector {
 
     @Column({
         type: "int",
+        nullable: true
             })
     division_id : number;
         }

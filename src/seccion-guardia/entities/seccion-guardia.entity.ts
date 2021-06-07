@@ -16,7 +16,8 @@ export class  SeccionGuardia {
     seccion: string;
 
     @Column({
-       type: "int" 
+       type: "int",
+       nullable: true
     })
     departamento_id: number;
         }

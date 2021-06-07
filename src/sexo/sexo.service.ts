@@ -17,7 +17,11 @@ export class SexoService {
      * @returns 
      */
     async getAll(){
-        return await this.sexoRepository.findAndCount();
+        try {
+            return await this.sexoRepository.findAndCount();
+             } catch (error) {
+            throw new BadRequestException(error.message);
+        }
     }
 
     /**
@@ -26,7 +30,11 @@ export class SexoService {
      * @returns 
      */
     async getOne(id:number){
-        return await this.sexoRepository.findOneOrFail(id);
+        try {
+            return await this.sexoRepository.findOneOrFail(id);
+        } catch (error) {
+            throw new BadRequestException(error.message);
+        }
     }
 
     async editOne(id: number, data: EditSexoDto){
