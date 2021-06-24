@@ -1,6 +1,7 @@
-import {Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn, BeforeInsert, BeforeUpdate, CreateDateColumn, UpdateDateColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn, BeforeInsert, BeforeUpdate, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn} from "typeorm";
 import { UsuarioRole } from '../enums/usuario-role-enums';
 import {hash} from 'bcryptjs';
+import { Destino } from "src/destino/entities/destino.entity";
 
 @Entity('usuarios')
 export class  Usuario {
@@ -52,10 +53,16 @@ export class  Usuario {
 
     @Column({
         type: "int",
-        unsigned: true,
         nullable: false
      })
     destino_id: number;
+
+    @ManyToOne(type => Destino, {eager: true})
+    @JoinColumn({
+        name: "destino_id",
+        referencedColumnName: "id_destino"
+    })
+    destino: Destino
 
 
    @CreateDateColumn()
