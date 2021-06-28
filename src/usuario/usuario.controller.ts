@@ -112,6 +112,7 @@ export class UsuarioController {
                  storage: diskStorage({
                      destination: path.join(__dirname,'../../users-pictures'),
                      filename: (req, file, cb) => {
+                         console.log('PASANDO POR RENOMBRAR ARCHIVO');
                                cb(null, uuid() + path.extname(file.originalname))
                     },
                     },
@@ -119,6 +120,7 @@ export class UsuarioController {
                  fileFilter: (req, file, cb) => {
                     
                         if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
+                            console.log('PASANDO POR VERIFICACION DE FORMATO');
                                          return cb(new HttpException('Formato de archivo inválido (jpg|jpeg|png|gif)', HttpStatus.BAD_REQUEST),false);
                                          
                         }
@@ -138,7 +140,7 @@ export class UsuarioController {
                     throw new Error;
             }
             const id: number = parseInt(req.query.id.toString());
-            console.log(foto);
+            // console.log(foto);
             return await this.usuarioService.cargarFoto(foto.filename, id);
             
         } catch (error) {

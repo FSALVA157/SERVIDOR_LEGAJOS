@@ -47,7 +47,8 @@ export class  Usuario {
    @Column({
     type: "varchar",
     length: 100,
-    nullable: true
+    nullable: true,
+    default: "no-image.jpg"
        })
     img: string;
 
