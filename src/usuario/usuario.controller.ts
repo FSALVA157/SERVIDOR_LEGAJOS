@@ -112,6 +112,19 @@ export class UsuarioController {
                  storage: diskStorage({
                      destination: path.join(__dirname,'../../users-pictures'),
                      filename: (req, file, cb) => {
+                         //comprobar si el usuario existe
+                         let miServicio: UsuarioService;
+                         const id: number = parseInt(req.query.id.toString());
+                         console.log('EN EL INTERCEPTOR ESTE ES EL ID: ',id);
+                        //  const user =  miServicio.getOne(id).then(respuesta => {
+                        //      return respuesta;
+                        //  });
+                        //  if(!user){
+                        //      console.log('DESDE EL INTERCEPTOR: NO EXISTE EL USUARIO');
+                        //     }else{
+                        //         console.log('DESDE EL INTERCEPTOR: SI EXISTE EL USUARIO');
+                        //     }
+
                          console.log('PASANDO POR RENOMBRAR ARCHIVO');
                                cb(null, uuid() + path.extname(file.originalname))
                     },
