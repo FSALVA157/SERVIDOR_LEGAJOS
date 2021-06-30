@@ -126,11 +126,12 @@ async cargarFoto(foto_url: string, id: number){
         throw new NotFoundException('No existe el usuario al que intenta asignar la imagen');
        return; 
     }
-
     //si ya existe una foto vamos a eliminarla
         if(user.img !== null){
-           
-                fs.unlink(path.resolve(user.img)).then().catch(error=>{
+                    console.log('ENTRANDO A VERIFICACION DE IMAGEN EXISTE', user.img);
+                     fs.unlink(path.join(__dirname,'../../users-pictures',user.img)).then(resultado => {
+                         console.log('EL RESULTADO DE LA OPERACION DE BORRADO ES: ', resultado);
+                     }).catch(error=>{
                     console.log(error);
                 });
            
