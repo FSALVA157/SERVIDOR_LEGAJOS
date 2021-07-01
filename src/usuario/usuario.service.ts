@@ -23,7 +23,6 @@ interface IUsuario {
     ultima_actualizacion:Date,
     fecha_baja: Date,
     role: UsuarioRole
-
 }
 
 @Injectable()
@@ -92,7 +91,7 @@ async editOne(id:number, data: EditUserDto){
 async deleteOne(id:number){
     const usuarioSeleccionado = await this.usuarioRepository.findOne(id);
     if(!usuarioSeleccionado) throw new NotFoundException('No existe el Usuario que desea Eliminar');
-    return await this.usuarioRepository.remove(usuarioSeleccionado);
+    return await this.usuarioRepository.softDelete(id);
 }
 
 /**
@@ -180,6 +179,11 @@ async getFotoByIdUsuario(id: number){
 }
 
 async deleteFoto(id:number){
+    try {
+        
+    } catch (error) {
+        
+    }
 
 }
 
