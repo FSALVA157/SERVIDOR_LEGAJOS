@@ -180,6 +180,7 @@ export class  Personal {
 
     @Column({
         type: "int",
+        nullable: true,
          //el valor default 1 corresponde a "sin seccion" si ese registro cambia debe corregirse este default
          default: 1
              })
