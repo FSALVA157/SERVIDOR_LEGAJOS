@@ -119,8 +119,8 @@ export class UsuarioController {
                  ),
                  fileFilter: (req, file, cb) => {
                     
+                     console.log('PASANDO POR VERIFICACION DE FORMATO');
                         if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
-                            console.log('PASANDO POR VERIFICACION DE FORMATO');
                                          return cb(new HttpException('Formato de archivo inválido (jpg|jpeg|png|gif)', HttpStatus.BAD_REQUEST),false);
                                          
                         }
