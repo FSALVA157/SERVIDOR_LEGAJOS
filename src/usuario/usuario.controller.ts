@@ -119,8 +119,7 @@ export class UsuarioController {
                  ),
                  fileFilter: (req, file, cb) => {
                             if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
-                            
-                                         return cb(new HttpException('Formato de archivo inválido (jpg|jpeg|png|gif)', HttpStatus.BAD_REQUEST),false);
+                                 return cb(new HttpException('Formato de archivo inválido (jpg|jpeg|png|gif)', HttpStatus.BAD_REQUEST),false);
                               }
                            cb(null, true);
                                               
