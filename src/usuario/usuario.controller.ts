@@ -112,20 +112,18 @@ export class UsuarioController {
                  storage: diskStorage({
                      destination: path.join(__dirname,'../../users-pictures'),
                      filename: (req, file, cb) => {
-                         console.log('PASANDO POR RENOMBRAR ARCHIVO');
+                                console.log('PASANDO POR RENOMBRAR ARCHIVO');
                                cb(null, uuid() + path.extname(file.originalname))
                     },
                     },
                  ),
                  fileFilter: (req, file, cb) => {
-                    
-                     console.log('PASANDO POR VERIFICACION DE FORMATO');
-                        if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
+                            if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
+                            
                                          return cb(new HttpException('Formato de archivo inválido (jpg|jpeg|png|gif)', HttpStatus.BAD_REQUEST),false);
-                                         
-                        }
+                              }
                            cb(null, true);
-                                               
+                                              
                      }
              })   
         )
@@ -147,12 +145,5 @@ export class UsuarioController {
             throw new BadRequestException('No olvide adjuntar un archivo imagen y el parámetro id del  usuario!!');
         }
     }
-
-
-
-
-     
-
-
 
 }

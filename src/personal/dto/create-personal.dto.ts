@@ -75,7 +75,7 @@ export class CreatePersonalDto {
 
     @IsInt({message:'La seccion debe ser una clave entera'})
     @IsOptional()
-    seccion_id: number;
+    seccion_guardia_id: number;
 
     @IsString()
     @Length(1,200,{message:'La función es un texto que debe tener entre $constraint1 y $constraint2 caracteres'})

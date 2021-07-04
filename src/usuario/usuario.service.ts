@@ -23,7 +23,6 @@ interface IUsuario {
     ultima_actualizacion:Date,
     fecha_baja: Date,
     role: UsuarioRole
-
 }
 
 @Injectable()
@@ -92,7 +91,7 @@ async editOne(id:number, data: EditUserDto){
 async deleteOne(id:number){
     const usuarioSeleccionado = await this.usuarioRepository.findOne(id);
     if(!usuarioSeleccionado) throw new NotFoundException('No existe el Usuario que desea Eliminar');
-    return await this.usuarioRepository.remove(usuarioSeleccionado);
+    return await this.usuarioRepository.softDelete(id);
 }
 
 /**
@@ -126,11 +125,12 @@ async cargarFoto(foto_url: string, id: number){
         throw new NotFoundException('No existe el usuario al que intenta asignar la imagen');
        return; 
     }
-
     //si ya existe una foto vamos a eliminarla
         if(user.img !== null){
-           
-                fs.unlink(path.resolve(user.img)).then().catch(error=>{
+                    console.log('ENTRANDO A VERIFICACION DE IMAGEN EXISTE', user.img);
+                     fs.unlink(path.join(__dirname,'../../users-pictures',user.img)).then(resultado => {
+                         console.log('EL RESULTADO DE LA OPERACION DE BORRADO ES: ', resultado);
+                     }).catch(error=>{
                     console.log(error);
                 });
            
@@ -179,6 +179,11 @@ async getFotoByIdUsuario(id: number){
 }
 
 async deleteFoto(id:number){
+    try {
+        
+    } catch (error) {
+        
+    }
 
 }
 
