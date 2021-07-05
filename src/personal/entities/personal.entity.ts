@@ -12,6 +12,7 @@ import { Grado } from '../../grado/entities/grado.entity';
 import { DepartamentoProvincial } from '../../departamento-provincial/entity/dpto-prov.entity';
 import { Municipio } from '../../municipio/entities/municipio.entity';
 import { Ciudad } from "../../ciudad/entities/ciudad.entity";
+import { NivelEducativo } from '../../nivel-educativo/entities/nivel-educativo.entity';
 
 /**
  * Tabla que contiene los datos de todo el personal penitenciario 
@@ -336,6 +337,13 @@ export class  Personal {
         nullable: true
              })
     nivel_educativo_id : number;
+
+    @ManyToOne(type => NivelEducativo, {eager: true})
+    @JoinColumn({
+        name: 'nivel_educativo_id',
+        referencedColumnName: 'id_nivel_educativo'
+    })
+    nivel_educativo: NivelEducativo;
 
     @Column({
         type: "int",
