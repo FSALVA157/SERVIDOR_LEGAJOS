@@ -62,7 +62,7 @@ export class PersonalService {
 async getMany(destino_usuario: number){
     try {
         return await this.personalRepository.findAndCount({
-            where: [{destino: destino_usuario}]
+            where: [{destino_id: destino_usuario}]
         });
         
     } catch (error) {
