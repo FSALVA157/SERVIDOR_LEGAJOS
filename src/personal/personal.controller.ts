@@ -58,12 +58,17 @@ export class PersonalController {
       }
      }
     
-    @Get(':destino')
-    async getAll(
+    @Get('/destino/:destino')
+    async getMany(
         @Param('destino',ParseIntPipe)
         destino:number
     ){
         return await this.personalService.getMany(destino);
+    }
+
+    @Get()
+    async getAll(){
+        return await this.personalService.getAll();
     }
 
     @Get(':legajo')

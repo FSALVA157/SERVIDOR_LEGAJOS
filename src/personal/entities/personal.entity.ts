@@ -13,6 +13,8 @@ import { DepartamentoProvincial } from '../../departamento-provincial/entity/dpt
 import { Municipio } from '../../municipio/entities/municipio.entity';
 import { Ciudad } from "../../ciudad/entities/ciudad.entity";
 import { NivelEducativo } from '../../nivel-educativo/entities/nivel-educativo.entity';
+import { Provincia } from '../../provincia/entities/provincia.entity';
+import { Situacion } from '../../situacion/entities/situacion.entity';
 
 /**
  * Tabla que contiene los datos de todo el personal penitenciario 
@@ -261,6 +263,13 @@ export class  Personal {
              })
     provincia_id : number;
 
+    @ManyToOne(type => Provincia,{eager: true})
+    @JoinColumn({
+        name: "provincia_id",
+        referencedColumnName: "id_provincia"
+    })
+    provincia: Provincia;
+
     @Column({
         type: "int",
         nullable: true
@@ -356,6 +365,13 @@ export class  Personal {
         nullable: true
              })
     situacion_id : number;
+
+    @ManyToOne(type => Situacion, {eager: true})
+    @JoinColumn({
+        name: 'situacion_id',
+        referencedColumnName: 'id_situacion'
+    })
+    situacion: Situacion;
 
     @Column({
         type: "varchar",

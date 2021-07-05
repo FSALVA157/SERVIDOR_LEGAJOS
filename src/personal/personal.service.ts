@@ -70,6 +70,21 @@ async getMany(destino_usuario: number){
     }
 }
 
+
+/**
+ * Servicio que devuelve todos los registros de la tabla PERSONAL
+ * segun la Unidad del Usuario
+ * @returns 
+ */
+ async getAll(){
+    try {
+        return await this.personalRepository.findAndCount();
+        
+    } catch (error) {
+            throw new BadRequestException(error.message)
+    }
+}
+
 /**
  * Servicio que devuelve un registro de personal según legajo
  * @param legajo
