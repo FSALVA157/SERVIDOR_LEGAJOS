@@ -27,6 +27,7 @@ export class SituacionController {
         @Body()
         situacionDto: CreateSituacionDto
     ){
+        console.log('EL BODY LLEVA', situacionDto);
         return await this.situacionService.createOne(situacionDto);
     }
 
