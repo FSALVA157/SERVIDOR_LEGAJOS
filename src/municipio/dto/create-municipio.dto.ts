@@ -8,7 +8,9 @@ export class CreateMunicipioDto {
     municipio: string;
 
     @IsInt()
-    id_provincia: number;
+    provincia_id: number;
     
+    @IsInt()
+    departamento_id: number;
 
 }
