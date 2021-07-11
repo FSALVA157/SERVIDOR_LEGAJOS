@@ -18,7 +18,7 @@ export class JerarquiaService {
      */
      async getAll(){
         try {
-           return await this.jerarquiaRepository.findAndCount()
+           return await this.jerarquiaRepository.find()
             
         } catch (error) {
             throw new BadRequestException(error.message);

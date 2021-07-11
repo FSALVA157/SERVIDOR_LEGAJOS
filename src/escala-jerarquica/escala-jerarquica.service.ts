@@ -17,7 +17,7 @@ export class EscalaJerarquicaService {
      */
      async getMany(){
         try {
-           return await this.escalaRepository.findAndCount()
+           return await this.escalaRepository.find();
             
         } catch (error) {
             throw new BadRequestException(error.message);

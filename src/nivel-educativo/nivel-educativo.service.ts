@@ -18,7 +18,7 @@ export class NivelEducativoService {
      */
      async getAll(){
         try {
-           return await this.nivelRepository.findAndCount()
+           return await this.nivelRepository.find()
             
         } catch (error) {
             throw new BadRequestException(error.message);

@@ -18,7 +18,7 @@ export class GradoService {
      */
      async getAll(){
         try {
-           return await this.gradoRepository.findAndCount()
+           return await this.gradoRepository.find();
             
         } catch (error) {
             throw new BadRequestException(error.message);
