@@ -12,7 +12,7 @@ export class ProvinciaService {
 
     async getAll(){
         try {
-            return await this.provinciaRepository.findAndCount();
+            return await this.provinciaRepository.find();
         } catch (error) {
             return new BadRequestException(error.error.message);
         }
