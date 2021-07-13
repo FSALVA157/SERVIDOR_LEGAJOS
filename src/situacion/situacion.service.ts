@@ -20,7 +20,7 @@ export class SituacionService {
      * @returns 
      */
     async getAll(){
-        return await this.situacionRepository.findAndCount();
+        return await this.situacionRepository.find();
     }
 
     /**

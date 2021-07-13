@@ -18,7 +18,7 @@ export class SexoService {
      */
     async getAll(){
         try {
-            return await this.sexoRepository.findAndCount();
+            return await this.sexoRepository.find();
              } catch (error) {
             throw new BadRequestException(error.message);
         }

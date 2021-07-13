@@ -17,7 +17,7 @@ export class DestinoService {
      * @returns 
      */
       async getAll(){
-        return await this.destinoRepository.findAndCount();
+        return await this.destinoRepository.find();
     }
 
     /**
