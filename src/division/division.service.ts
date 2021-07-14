@@ -18,7 +18,7 @@ export class DivisionService {
      * @returns 
      */
      async getAll(){
-        return await this.divisionRepository.findAndCount();
+        return await this.divisionRepository.find();
     }
 
     /**

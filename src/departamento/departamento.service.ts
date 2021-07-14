@@ -18,7 +18,7 @@ export class DepartamentoService {
      * @returns 
      */
      async getAll(){
-        return await this.departamentoRepository.findAndCount();
+        return await this.departamentoRepository.find();
     }
 
     /**
