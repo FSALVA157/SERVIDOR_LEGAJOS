@@ -37,7 +37,7 @@ export class SectorController {
         @Body()
         data: EditSectorDto
     ){
-        await this.sectorService.editOne(id, data);
+        return await this.sectorService.editOne(id, data);
     }
 
     @Delete(':id')

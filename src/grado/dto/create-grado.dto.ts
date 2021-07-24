@@ -8,6 +8,9 @@ export class CreateGradoDto {
     grado: string;
 
     @IsInt()
+    escala_jerarquica_id: number;
+
+    @IsInt()
     jerarquia_id: number;
     
 

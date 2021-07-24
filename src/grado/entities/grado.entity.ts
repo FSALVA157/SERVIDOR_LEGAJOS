@@ -19,5 +19,11 @@ export class  Grado {
     @Column({
         type: "int",
             })
+    escala_jerarquica_id : number;
+
+    @Column({
+        type: "int",
+            })
     jerarquia_id : number;
+
         }

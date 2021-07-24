@@ -18,7 +18,7 @@ export class SectorService {
      */
     async getMany(){
         try {
-           return await this.sectorRepository.findAndCount()
+           return await this.sectorRepository.find();
             
         } catch (error) {
             throw new BadRequestException(error.message);

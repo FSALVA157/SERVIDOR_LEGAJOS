@@ -17,7 +17,7 @@ export class SeccionGuardiaService {
      * @returns 
      */
     async getAll(){
-        return await this.seccionRepository.findAndCount();
+        return await this.seccionRepository.find();
     }
 
     /**
