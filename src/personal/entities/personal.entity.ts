@@ -328,7 +328,7 @@ export class  Personal {
         precision: 3,
         scale: 2,
         default: 0,
-        nullable: false
+        nullable: true
     })
     altura: number;
 
@@ -337,7 +337,7 @@ export class  Personal {
         precision: 5,
         scale: 2,
         default: 0,
-        nullable: false
+        nullable: true
     })
     peso: number;
 
