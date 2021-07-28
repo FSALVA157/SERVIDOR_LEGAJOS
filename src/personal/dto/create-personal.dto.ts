@@ -8,7 +8,7 @@ export class CreatePersonalDto {
     apellido_1: string;
 
     @IsString()
-    @Length(2,50,{message:'El segundo apellido debe tener entre $constraint1 y $constraint2 caracteres'})
+
     @IsOptional()
     apellido_2: string;
 
@@ -17,12 +17,12 @@ export class CreatePersonalDto {
     nombre_1: string;
 
     @IsString()
-    @Length(2,50,{message:'El segundo nombre debe tener entre $constraint1 y $constraint2 caracteres'})
+
     @IsOptional()
     nombre_2: string;
 
     @IsString()
-    @Length(2,50,{message:'El tercer nombre debe tener entre $constraint1 y $constraint2 caracteres'})
+
     @IsOptional()
     nombre_3: string;
 
