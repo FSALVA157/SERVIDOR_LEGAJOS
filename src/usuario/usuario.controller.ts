@@ -112,7 +112,6 @@ export class UsuarioController {
                  storage: diskStorage({
                      destination: path.join(__dirname,'../../users-pictures'),
                      filename: (req, file, cb) => {
-                                console.log('PASANDO POR RENOMBRAR ARCHIVO');
                                cb(null, uuid() + path.extname(file.originalname))
                     },
                     },

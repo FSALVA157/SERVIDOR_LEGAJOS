@@ -27,6 +27,7 @@ import { CiudadModule } from './ciudad/ciudad.module';
 import { DepartamentoProvincialModule } from './departamento-provincial/departamento-provincial.module';
 import { PassportModule } from '@nestjs/passport';
 import { MulterModule } from '@nestjs/platform-express';
+import { ArchivoModule } from './archivo/archivo.module';
 
 
 
@@ -72,9 +73,13 @@ import { MulterModule } from '@nestjs/platform-express';
     MunicipioModule,
     CiudadModule,
     DepartamentoProvincialModule,
+    ArchivoModule,
   //  MulterModule
   ],
   controllers: [AppController],
   providers: [AppService],
+  exports: [
+    PersonalModule
+  ]
 })
 export class AppModule {}

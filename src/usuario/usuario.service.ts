@@ -127,11 +127,11 @@ async cargarFoto(foto_url: string, id: number){
     }
     //si ya existe una foto vamos a eliminarla
         if(user.img !== null){
-                    console.log('ENTRANDO A VERIFICACION DE IMAGEN EXISTE', user.img);
-                     fs.unlink(path.join(__dirname,'../../users-pictures',user.img)).then(resultado => {
-                         console.log('EL RESULTADO DE LA OPERACION DE BORRADO ES: ', resultado);
+                    
+                     fs.unlink(path.join(__dirname,'../../users-pictures',user.img)).then(resultado => { 
                      }).catch(error=>{
-                    console.log(error);
+                    throw new BadRequestException(error.error.message);
+                    
                 });
            
         }

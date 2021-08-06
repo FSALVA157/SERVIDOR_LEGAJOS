@@ -152,4 +152,5 @@ export class CreatePersonalDto {
     @IsOptional()
     foto: string;
 
+    
 }
