@@ -12,7 +12,7 @@ import { Archivo } from './entities/archivo.entity';
     TypeOrmModule.forFeature([
       Archivo
     ]),
-    //PersonalModule
+    PersonalModule
   ],
   controllers: [ArchivoController],
   providers: [
