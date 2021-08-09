@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ArchivoService } from './archivo.service';
 import { ArchivoController } from './archivo.controller';
-import { PersonalModule } from 'src/personal/personal.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Archivo } from './entities/archivo.entity';
-//import { PersonalService } from 'src/personal/personal.service';
+import { PersonalModule } from '../personal/personal.module';
+
 
 
 @Module({
@@ -17,7 +17,7 @@ import { Archivo } from './entities/archivo.entity';
   controllers: [ArchivoController],
   providers: [
     ArchivoService,
-  //  PersonalService
   ],
+  exports:[ ]
 })
 export class ArchivoModule {}

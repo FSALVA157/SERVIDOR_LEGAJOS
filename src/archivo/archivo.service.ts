@@ -10,37 +10,64 @@ import { PersonalService } from '../personal/personal.service';
 
 @Injectable()
 export class ArchivoService {
-  personalService: PersonalService;
+  
   constructor(
-    //private readonly personalService: PersonalService,
+    private readonly personalService: PersonalService,
     @InjectRepository(Archivo)
     private readonly archivoRepository: Repository<Archivo>,
     
   ){ }
 
   async create(createArchivoDto: CreateArchivoDto) {
-    try {
-      return await this.archivoRepository.create(createArchivoDto);
-    } catch (error) {
-      throw new BadRequestException(error.error.message);
-      
-    }
+    return "Un registro de archivo solo puede ser creado cuando cargo un archivo"
   }
 
-  findAll() {
-    return `This action returns all archivo`;
+  async findByLegajo(legajo: number) {
+    try {
+      return await this.archivoRepository.findAndCount({where: {legajo_personal: legajo}})
+    } catch (error) {
+      throw new BadRequestException(error.error.message);
+    }
   }
 
   findOne(id: number) {
     return `This action returns a #${id} archivo`;
   }
 
-  update(id: number, updateArchivoDto: UpdateArchivoDto) {
-    return `This action updates a #${id} archivo`;
+  async update(id: number, updateArchivoDto: UpdateArchivoDto) {
+    try {
+      if(updateArchivoDto.nombre_archivo != null){
+        throw new Error('No puede modificar el nombre del archivo por esta via, debe eliminar el mismo y reemplazarlo');
+        
+      }
+      const resultado = await this.archivoRepository.update(id, updateArchivoDto);
+      if(resultado.affected == 0){
+        throw new Error('Error en la edición de Datos, no se ha actualizado ningún registro');
+      }
+      return resultado;
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} archivo`;
+  async remove(id: number) {
+    try {
+      const existe = await this.archivoRepository.findOne(id);
+      if(!existe){
+        throw new Error("No existe el registro que desea eliminar");
+         }
+      const archivo = existe.nombre_archivo;
+      //eliminar imagen
+      fs.unlink(path.join(__dirname,'../../personal-pdf',archivo)).then(async resultado => {
+        return await this.archivoRepository.delete(id);
+      }).catch(error=>{
+     throw new Error('Error al eliminar el pdf asociado al registro');
+    });
+
+  }
+     catch (error) {
+          throw new BadRequestException(error.message);
+    }
   }
 
   async cargarPDF(data_archivo: CreateArchivoDto){
@@ -50,7 +77,8 @@ export class ArchivoService {
     }
     
     try {
-      const resultado = await this.create(data_archivo);
+      const resultado = await this.archivoRepository.create(data_archivo);
+      return await this.archivoRepository.save(resultado);
       } catch (error) {
       throw new BadRequestException(error.error.message);
     }

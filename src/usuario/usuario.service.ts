@@ -123,8 +123,7 @@ async cargarFoto(foto_url: string, id: number){
     const user = await this.usuarioRepository.findOne({id_usuario: id});
     if(!user){
         throw new NotFoundException('No existe el usuario al que intenta asignar la imagen');
-       return; 
-    }
+       }
     //si ya existe una foto vamos a eliminarla
         if(user.img !== null){
                     

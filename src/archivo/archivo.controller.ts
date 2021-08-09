@@ -15,28 +15,38 @@ export class ArchivoController {
   constructor(private readonly archivoService: ArchivoService) {}
 
   @Post()
-  create(@Body() createArchivoDto: CreateArchivoDto) {
-    return this.archivoService.create(createArchivoDto);
+  async create(@Body() createArchivoDto: CreateArchivoDto) {
+    return await this.archivoService.create(createArchivoDto);
   }
 
-  @Get()
-  findAll() {
-    return this.archivoService.findAll();
+  @Get(':legajo')
+  async findManyByLegajo(
+    @Param('legajo', ParseIntPipe)
+    legajo: number
+  ) {
+    return await this.archivoService.findByLegajo(legajo);
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.archivoService.findOne(+id);
+  async findOne(@Param('id') id: string) {
+    return await this.archivoService.findOne(+id);
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateArchivoDto: UpdateArchivoDto) {
-    return this.archivoService.update(+id, updateArchivoDto);
+  async update(
+    @Param('id', ParseIntPipe) 
+    id: number, 
+    @Body()
+    updateArchivoDto: UpdateArchivoDto) {
+    return await this.archivoService.update(id, updateArchivoDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.archivoService.remove(+id);
+  async remove(
+   @Param('id', ParseIntPipe) 
+   id: number
+   ) {
+    return await this.archivoService.remove(+id);
   }
 
   /**
@@ -69,6 +79,7 @@ export class ArchivoController {
        req: Request,    
    ){
        try {
+                  
            if(req.query.legajo === null || pdf === null){
                    throw new Error;
            }
@@ -81,8 +92,7 @@ export class ArchivoController {
                indice: indice
            }
            
-
-           // console.log(foto);
+         
            return await this.archivoService.cargarPDF(nuevoPdf);
            
        } catch (error) {
