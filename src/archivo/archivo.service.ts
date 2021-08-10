@@ -30,8 +30,19 @@ export class ArchivoService {
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} archivo`;
+  async findOneById(id: number) {
+    try {
+      const archivo = await this.archivoRepository.findOne(id);
+      if(!archivo){
+          throw new Error('El archivo que busca no Existe');
+      }
+      const ruta = path.resolve(__dirname,`../../personal-pdf/${archivo.nombre_archivo}` );
+      return ruta;
+      
+      
+  } catch (error) {
+      throw new BadRequestException(error.message);
+  }
   }
 
   async update(id: number, updateArchivoDto: UpdateArchivoDto) {
@@ -58,10 +69,15 @@ export class ArchivoService {
          }
       const archivo = existe.nombre_archivo;
       //eliminar imagen
-      fs.unlink(path.join(__dirname,'../../personal-pdf',archivo)).then(async resultado => {
-        return await this.archivoRepository.delete(id);
+      return fs.unlink(path.join(__dirname,'../../personal-pdf',archivo)).then(async resultado => {
+          const respuesta =  await this.archivoRepository.delete(id);
+          return {
+            status: 200,
+            message: 'Se han Eliminado el Registro e Imágen con Exito',
+            detalle: respuesta
+          };
       }).catch(error=>{
-     throw new Error('Error al eliminar el pdf asociado al registro');
+            return new Error('Error al eliminar el pdf asociado al registro');
     });
 
   }
@@ -75,7 +91,6 @@ export class ArchivoService {
     if(!personal){
         throw new NotFoundException('No existe el personal al que intenta asignar el archivo');
     }
-    
     try {
       const resultado = await this.archivoRepository.create(data_archivo);
       return await this.archivoRepository.save(resultado);

@@ -134,10 +134,6 @@ async cargarFoto(foto_url: string, id: number){
                 });
            
         }
-        
-    
-
-
     let data: EditUserDto = {
         "img": foto_url
     };
@@ -167,8 +163,7 @@ async getFotoByIdUsuario(id: number){
             throw new Error('El Usuario que busca no Existe');
         }
         const ruta = path.resolve(__dirname,`../../users-pictures/${user.img}` );
-        return ruta;
-        
+        return ruta;       
         
     } catch (error) {
         throw new BadRequestException(error.message);

@@ -15,8 +15,15 @@ export class ArchivoController {
   constructor(private readonly archivoService: ArchivoService) {}
 
   @Post()
-  async create(@Body() createArchivoDto: CreateArchivoDto) {
-    return await this.archivoService.create(createArchivoDto);
+  async create(
+    @Body()
+     createArchivoDto: CreateArchivoDto
+     ) {
+       try {
+         return await this.archivoService.create(createArchivoDto);         
+       } catch (error) {
+        throw new BadRequestException(error.message);
+       }
   }
 
   @Get(':legajo')
@@ -24,13 +31,37 @@ export class ArchivoController {
     @Param('legajo', ParseIntPipe)
     legajo: number
   ) {
-    return await this.archivoService.findByLegajo(legajo);
+    try {
+      return await this.archivoService.findByLegajo(legajo);      
+    } catch (error) {
+      throw new BadRequestException(error.message);
+    }
   }
 
-  @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return await this.archivoService.findOne(+id);
+  @Get('/id/pdf')
+  async findOneById(
+    @Req()
+      req: Request,
+      @Res()
+      res: Response
+    ) {
+      try {
+        if(!req.query.id){
+            throw new Error('Debe proporcionar el id del archivo');
+        }
+        console.log('ENTRANDO AL CONTROLADOR DE PDF');
+        const id: number = parseInt(req.query.id.toString());
+        console.log('EN EL CONTROLADOR EL ID ES', id);
+            const ruta = await this.archivoService.findOneById(id);
+            console.log('LA RUTA ES', ruta);
+            res.sendFile(ruta);        
+    } catch (error) {
+        throw new BadRequestException(error.message);
+    }
+
   }
+
+
 
   @Put(':id')
   async update(
@@ -38,7 +69,11 @@ export class ArchivoController {
     id: number, 
     @Body()
     updateArchivoDto: UpdateArchivoDto) {
-    return await this.archivoService.update(id, updateArchivoDto);
+      try {
+        return await this.archivoService.update(id, updateArchivoDto);
+          } catch (error) {
+            throw new BadRequestException(error.message); 
+      }
   }
 
   @Delete(':id')
@@ -46,7 +81,13 @@ export class ArchivoController {
    @Param('id', ParseIntPipe) 
    id: number
    ) {
-    return await this.archivoService.remove(+id);
+     try {
+       return await this.archivoService.remove(+id);
+       
+     } catch (error) {
+       throw new BadRequestException(error.message);
+       
+     }
   }
 
   /**
