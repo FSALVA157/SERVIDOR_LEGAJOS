@@ -3,7 +3,7 @@ import { Destino } from "src/destino/entities/destino.entity";
 import { Division } from "src/division/entities/division.entity";
 import { Sector } from "src/sector/entities/sector.entity";
 import { Sexo } from "src/sexo/entities/sexo.entity";
-import {Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn, BeforeInsert, BeforeUpdate, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn, BeforeInsert, BeforeUpdate, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
 import { EstadoCivil } from '../../estado-civil/entities/estado-civil.entity';
 import { SeccionGuardia } from '../../seccion-guardia/entities/seccion-guardia.entity';
 import { Escalafon } from '../../escalafon/entities/escalafon.entity';
@@ -15,6 +15,7 @@ import { Ciudad } from "../../ciudad/entities/ciudad.entity";
 import { NivelEducativo } from '../../nivel-educativo/entities/nivel-educativo.entity';
 import { Provincia } from '../../provincia/entities/provincia.entity';
 import { Situacion } from '../../situacion/entities/situacion.entity';
+import { Archivo } from "src/archivo/entities/archivo.entity";
 
 /**
  * Tabla que contiene los datos de todo el personal penitenciario 
@@ -85,10 +86,15 @@ export class  Personal {
 
     @Column({
         type: "int",
-        unsigned: true,
+        // unsigned: true,
         unique: true
            })
     legajo: number;
+
+    @OneToMany(type => Archivo,archivo => archivo.personal,{
+        eager: true,
+        })
+    pdfs: Archivo[]
 
     @Column({
         type: "varchar",
@@ -100,8 +106,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        //unsigned: true
-    })
+          })
     sexo_id: number;
 
     @ManyToOne(type => Sexo,{eager : true})

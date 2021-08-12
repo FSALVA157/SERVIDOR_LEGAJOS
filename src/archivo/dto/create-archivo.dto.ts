@@ -16,4 +16,7 @@ export class CreateArchivoDto {
     @IsOptional()
     indice : number;
 
+    @IsDateString()
+    fecha_documento: Date;
+
 }

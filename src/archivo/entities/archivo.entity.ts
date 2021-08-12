@@ -12,12 +12,12 @@ export class Archivo {
              })
     legajo_personal: number;
 
-    // @ManyToOne(type => Personal)
-    // @JoinColumn({
-    //     referencedColumnName: "legajo",
-    //     name: "legajo_personal"
-    // })
-    // personal: Personal;
+    @ManyToOne(type => Personal)
+    @JoinColumn({
+        referencedColumnName: "legajo",
+        name: "legajo_personal"
+    })
+    personal: Personal;
 
     @Column({
         type: "varchar",
@@ -36,5 +36,22 @@ export class Archivo {
         nullable: true
              })
     indice : number;
+
+    @Column({
+        type: "date",
+        nullable: false,
+           })
+    fecha_documento: Date;
+
+
+    @CreateDateColumn()
+    fecha_alta: Date;
+ 
+    @UpdateDateColumn()
+    ultima_actualizacion:Date;
+ 
+    @DeleteDateColumn()
+    fecha_baja: Date;
+ 
     
 }

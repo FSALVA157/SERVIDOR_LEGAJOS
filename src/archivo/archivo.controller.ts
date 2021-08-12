@@ -49,12 +49,10 @@ export class ArchivoController {
         if(!req.query.id){
             throw new Error('Debe proporcionar el id del archivo');
         }
-        console.log('ENTRANDO AL CONTROLADOR DE PDF');
+        
         const id: number = parseInt(req.query.id.toString());
-        console.log('EN EL CONTROLADOR EL ID ES', id);
-            const ruta = await this.archivoService.findOneById(id);
-            console.log('LA RUTA ES', ruta);
-            res.sendFile(ruta);        
+        const ruta = await this.archivoService.findOneById(id);
+        res.sendFile(ruta);        
     } catch (error) {
         throw new BadRequestException(error.message);
     }
@@ -126,11 +124,13 @@ export class ArchivoController {
            }
            const detalle: string = req.query.detalle.toString() || "";
            const indice: number = parseInt(req.query.indice.toString()) || 0;
+           const fecha: Date =  new Date(req.query.fecha_documento.toString());
            const nuevoPdf: CreateArchivoDto = {
                legajo_personal:   parseInt(req.query.legajo.toString()),
                nombre_archivo: pdf.filename,
                detalle: detalle,
-               indice: indice
+               indice: indice,
+               fecha_documento: fecha 
            }
            
          
