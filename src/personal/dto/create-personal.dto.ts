@@ -107,6 +107,10 @@ export class CreatePersonalDto {
     @IsOptional()
     provincia_id: number;
 
+    @IsInt({message:'El departamento provincial debe ser una clave entera'})
+    @IsOptional()
+    departamento_provincial_id: number;
+
     @IsInt({message:'El municipio debe ser una clave entera'})
     @IsOptional()
     municipio_id: number;
