@@ -114,19 +114,29 @@ export class ArchivoController {
    async cargarPDF(
        @UploadedFile()
        pdf: Express.Multer.File,
-       @Req()
-       req: Request,    
+       @Body()
+       data_body: Request    
    ){
        try {
-                  
-           if(req.query.legajo === null || pdf === null){
-                   throw new Error;
+        console.log('FILE>>>>', pdf);
+         console.log('BODY>>>>', data_body);
+         let fecha: Date = null;      
+         if(!pdf){
+          throw new Error('Debe adjuntar un archivo pdf');
+         }
+         
+         if(data_body['legajo'] === null){
+            throw new Error('Debe asignar el pdf a un personal');
            }
-           const detalle: string = req.query.detalle.toString() || "";
-           const indice: number = parseInt(req.query.indice.toString()) || 0;
-           const fecha: Date =  new Date(req.query.fecha_documento.toString());
-           const nuevoPdf: CreateArchivoDto = {
-               legajo_personal:   parseInt(req.query.legajo.toString()),
+           const detalle: string = data_body['detalle'].toString() || "";
+           const indice: number = parseInt(data_body['indice'].toString()) || 0;
+         if(data_body['fecha_documento']){
+              fecha =  new Date(data_body['fecha_documento'].toString());
+           }else{
+            throw new Error('El campo fecha del pdf es obligatorio');
+           }
+         const nuevoPdf: CreateArchivoDto = {
+               legajo_personal:   parseInt(data_body['legajo'].toString()),
                nombre_archivo: pdf.filename,
                detalle: detalle,
                indice: indice,
@@ -137,7 +147,7 @@ export class ArchivoController {
            return await this.archivoService.cargarPDF(nuevoPdf);
            
        } catch (error) {
-           throw new BadRequestException('No olvide adjuntar un pdf y el parámetro legajo del personal!!');
+           throw new BadRequestException(error.message);
        }
    }
 
