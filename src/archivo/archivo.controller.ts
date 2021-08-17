@@ -118,8 +118,6 @@ export class ArchivoController {
        data_body: Request    
    ){
        try {
-        console.log('FILE>>>>', pdf);
-         console.log('BODY>>>>', data_body);
          let fecha: Date = null;      
          if(!pdf){
           throw new Error('Debe adjuntar un archivo pdf');
