@@ -146,7 +146,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        //el valor default 3 corresponde a "sin destino" si ese registro cambia debe corregirse este default
+        //el valor default 3 corresponde a "sin departamento" si ese registro cambia debe corregirse este default
         default: 3
             })
     departamento_id : number;
@@ -170,11 +170,11 @@ export class  Personal {
         name: "division_id",
         referencedColumnName: "id_division"
     })
-    division: Division;
+    division: Division;f
 
     @Column({
         type: "int",
-         //el valor default 1 corresponde a "sin destino" si ese registro cambia debe corregirse este default
+         //el valor default 1 corresponde a "sin sector" si ese registro cambia debe corregirse este default
          default: 1
             })
     sector_id : number;
@@ -188,7 +188,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true,
+        //nullable: true,
          //el valor default 1 corresponde a "sin seccion" si ese registro cambia debe corregirse este default
          default: 1
              })
@@ -210,7 +210,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
+        nullable: false
              })
     escalafon_id : number;
 
@@ -223,7 +223,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
+        nullable: false
              })
     escala_jerarquica_id : number;
 
@@ -236,7 +236,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
+        nullable: false
              })
     grado_id : number;
 
@@ -251,7 +251,7 @@ export class  Personal {
         type: "varchar",
         length: 30,
         default: "argentina",
-        nullable: true
+        nullable: false
              })
     nacionalidad : string;
 
@@ -264,7 +264,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
+        nullable: false
              })
     provincia_id : number;
 
@@ -277,7 +277,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
+        nullable: false
              })
     departamento_provincial_id : number;
 
@@ -290,7 +290,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
+        nullable: false
              })
     municipio_id : number;
 
@@ -303,7 +303,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
+        nullable: false
              })
     ciudad_id : number;
 
@@ -348,7 +348,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
+        nullable: false
              })
     nivel_educativo_id : number;
 
@@ -367,7 +367,7 @@ export class  Personal {
 
     @Column({
         type: "int",
-        nullable: true
+        nullable: false
              })
     situacion_id : number;
 

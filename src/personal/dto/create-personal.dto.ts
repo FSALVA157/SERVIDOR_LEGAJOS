@@ -54,27 +54,21 @@ export class CreatePersonalDto {
     sexo_id: number;
 
     @IsInt({message:'El estado civil debe ser una clave entera'})
-    @IsOptional()
     estado_civil_id: number;
 
     @IsInt({message:'El destino debe ser una clave entera'})
-    @IsOptional()
     destino_id: number;
 
     @IsInt({message:'El departamento debe ser una clave entera'})
-    @IsOptional()
     departamento_id: number;
 
     @IsInt({message:'La división debe ser una clave entera'})
-    @IsOptional()
     division_id: number;
 
     @IsInt({message:'El sector debe ser una clave entera'})
-    @IsOptional()
     sector_id: number;
 
     @IsInt({message:'La seccion debe ser una clave entera'})
-    @IsOptional()
     seccion_guardia_id: number;
 
     @IsString()
@@ -83,19 +77,15 @@ export class CreatePersonalDto {
     funcion: string;
 
     @IsInt({message:'El escalafón debe ser una clave entera'})
-    @IsOptional()
     escalafon_id: number;
 
     @IsInt({message:'La escala jerárquica debe ser una clave entera'})
-    @IsOptional()
     escala_jerarquica_id: number;
 
     @IsInt({message:'El grado debe ser una clave entera'})
-    @IsOptional()
     grado_id: number;
 
     @IsString()
-    @IsOptional()
     nacionalidad: string;
 
     @IsString()
@@ -104,19 +94,15 @@ export class CreatePersonalDto {
     domicilio: string;
 
     @IsInt({message:'La provincia debe ser una clave entera'})
-    @IsOptional()
     provincia_id: number;
 
     @IsInt({message:'El departamento provincial debe ser una clave entera'})
-    @IsOptional()
     departamento_provincial_id: number;
 
     @IsInt({message:'El municipio debe ser una clave entera'})
-    @IsOptional()
     municipio_id: number;
 
     @IsInt({message:'La ciudad debe ser una clave entera'})
-    @IsOptional()
     ciudad_id: number;
 
     @IsString()
@@ -127,6 +113,7 @@ export class CreatePersonalDto {
     @IsString()
     @Matches(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$/,{message:'El email no es correcto'})
     @Length(4,50,{message:'El email debe tener entre $constraint1 y $constraint2 caracteres en este momento tu texto tiene una longitud de $value letras'})
+    @IsOptional()
     email: string;
 
     // @IsDecimal({
@@ -141,7 +128,6 @@ export class CreatePersonalDto {
     peso: number;
 
     @IsInt({message:'El nivel educativo es una clave entera'})
-    @IsOptional()
     nivel_educativo_id: number;
 
     @IsInt({message:'El usuario que registra es una clave entera'})
