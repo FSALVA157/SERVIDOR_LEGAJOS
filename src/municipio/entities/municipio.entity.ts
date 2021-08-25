@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from "typeorm";
+import { Ciudad } from "src/ciudad/entities/ciudad.entity";
+import {Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToMany } from "typeorm";
 import { DepartamentoProvincial } from '../../departamento-provincial/entity/dpto-prov.entity';
 
 /**
@@ -32,5 +33,11 @@ export class  Municipio {
         referencedColumnName: "id_dpto_prov"
     })
     departamento: DepartamentoProvincial;
+
+    @OneToMany(type => Ciudad,ciudad => ciudad.municipio,{
+        onDelete: "CASCADE",
+        eager: true,
+        cascade: true})
+    ciudades: Ciudad[];
 
         }
