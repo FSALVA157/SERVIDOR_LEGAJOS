@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
+import { Municipio } from '../../municipio/entities/municipio.entity';
 
 /**
  * Tabla que contiene las opciones de ciudad (salta, Venado Tuerto, etc,...)
@@ -20,6 +21,13 @@ export class Ciudad {
         type: "int",
            })
     municipio_id: number;
+
+    @ManyToOne(type => Municipio)
+    @JoinColumn({
+        name: "municipio_id",
+        referencedColumnName: "id_municipio"
+    })
+    municipio: Municipio
 
     @Column({
         type: "int",

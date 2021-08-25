@@ -17,7 +17,7 @@ export class CiudadService {
      * @returns 
      */
       async getAll(){
-        return await this.ciudadRepository.findAndCount();
+        return await this.ciudadRepository.find();
     }
 
     /**
