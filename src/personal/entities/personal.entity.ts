@@ -381,7 +381,8 @@ export class  Personal {
     @Column({
         type: "varchar",
         length: 100,
-        nullable: true
+        nullable: true,
+        default: 'no-image.png'
            })
     foto: string;
 
