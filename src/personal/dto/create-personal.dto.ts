@@ -43,10 +43,11 @@ export class CreatePersonalDto {
     ultimo_ascenso: Date;
 
     @IsInt({message:'El legajo debe ser una clave entera'})
+    @Min(100,{message:'El valor que intenta asignar a Legajo no es válido'})
     legajo: number;
 
     @IsString()
-    @Length(2,50,{message:'El tercer nombre debe tener entre $constraint1 y $constraint2 caracteres'})
+    @Length(2,50,{message:'El cuil debe tener entre $constraint1 y $constraint2 caracteres'})
     @IsOptional()
     cuil: string;
 
@@ -135,7 +136,6 @@ export class CreatePersonalDto {
     registrado_por: number;
 
     @IsInt({message:'La situacion del personal es una clave entera'})
-    @IsOptional()
     situacion_id: number;
 
     @IsString()
