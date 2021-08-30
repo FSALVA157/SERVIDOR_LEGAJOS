@@ -47,6 +47,7 @@ export class CreatePersonalDto {
     legajo: number;
 
     @IsString()
+    @Matches(/\b(20|23|24|27)(\D)?[0-9]{8}(\D)?[0-9]/,{message:'El cuil no tiene un formato correcto (Ej. 20-32505421-2)'})
     @Length(2,50,{message:'El cuil debe tener entre $constraint1 y $constraint2 caracteres'})
     @IsOptional()
     cuil: string;
