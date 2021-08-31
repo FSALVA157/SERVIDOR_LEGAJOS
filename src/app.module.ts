@@ -28,6 +28,7 @@ import { DepartamentoProvincialModule } from './departamento-provincial/departam
 import { PassportModule } from '@nestjs/passport';
 import { MulterModule } from '@nestjs/platform-express';
 import { ArchivoModule } from './archivo/archivo.module';
+import { CloudinaryModule } from './cloudinary/cloudinary.module';
 
 
 
@@ -74,6 +75,7 @@ import { ArchivoModule } from './archivo/archivo.module';
     CiudadModule,
     DepartamentoProvincialModule,
     ArchivoModule,
+    CloudinaryModule,
   //  MulterModule
   ],
   controllers: [AppController],
