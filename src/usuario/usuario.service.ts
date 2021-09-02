@@ -9,6 +9,8 @@ import * as fs from 'fs-extra';
 import * as path from 'path';
 import { UsuarioRole } from './enums/usuario-role-enums';
 import { Response} from 'express';
+import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
+import multer from 'multer';
 
 
 
@@ -30,7 +32,8 @@ export class UsuarioService {
     res: Response;
 constructor(
     @InjectRepository(Usuario)
-    private readonly usuarioRepository: Repository<Usuario>
+    private readonly usuarioRepository: Repository<Usuario>,
+    private cloudinaryService: CloudinaryService
 ){}
 
 /**
@@ -119,21 +122,27 @@ async getUserByEmail(correo: string){
                 .getOne()
 }
 
-async cargarFoto(foto_url: string, id: number){
+
+    async cargarFoto(foto: Express.Multer.File, id: number){
+
     const user = await this.usuarioRepository.findOne({id_usuario: id});
     if(!user){
         throw new NotFoundException('No existe el usuario al que intenta asignar la imagen');
        }
-    //si ya existe una foto vamos a eliminarla
-        if(user.img !== null){
+    //veamos si existe una imagen asociada
+        if(user.img !== null){                    
+                //      fs.unlink(path.join(__dirname,'../../users-pictures',user.img)).then(resultado => { 
+                //      }).catch(error=>{
+                //     throw new BadRequestException(error.error.message);
                     
-                     fs.unlink(path.join(__dirname,'../../users-pictures',user.img)).then(resultado => { 
-                     }).catch(error=>{
-                    throw new BadRequestException(error.error.message);
-                    
-                });
-           
+                // });   
         }
+
+        //subiendo la imagen a cloudinary
+        const foto_subida =  await this.cloudinaryService.uploadImage(foto).catch(() => {
+            throw new BadRequestException('Invalid file type.');
+          });
+    const foto_url: string = foto_subida.url;
     let data: EditUserDto = {
         "img": foto_url
     };

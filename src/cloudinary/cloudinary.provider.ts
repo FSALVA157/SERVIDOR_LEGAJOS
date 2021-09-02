@@ -1,14 +1,15 @@
 import { v2 } from 'cloudinary';
-import { CLOUDINARY } from 'src/constants';
+import { CLOUDINARY, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY,CLOUDINARY_API_SECRET } from 'src/config/constants';
+
 
 
 export const CloudinaryProvider = {
   provide: CLOUDINARY,
   useFactory: () => {
     return v2.config({
-      cloud_name: 'xxavierargentino',
-      api_key: '876447129776254',
-      api_secret: 'tapHwHsGnIWw9x3Q0OZacVpD8j4',
+      cloud_name: CLOUDINARY_CLOUD_NAME,
+      api_key: CLOUDINARY_API_KEY,
+      api_secret: CLOUDINARY_API_SECRET,
     });
   },
 };

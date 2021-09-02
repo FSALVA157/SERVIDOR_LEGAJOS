@@ -29,6 +29,7 @@
         "@nestjs/swagger": "^4.7.12",
         "@nestjs/typeorm": "^7.1.5",
         "@types/fs-extra": "^9.0.11",
+        "aws-sdk": "^2.982.0",
         "bcryptjs": "^2.4.3",
         "buffer-to-stream": "^1.0.0",
         "class-transformer": "^0.3.2",

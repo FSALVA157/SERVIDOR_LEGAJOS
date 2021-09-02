@@ -29,6 +29,7 @@ import { PassportModule } from '@nestjs/passport';
 import { MulterModule } from '@nestjs/platform-express';
 import { ArchivoModule } from './archivo/archivo.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { S3Module } from './s3/s3.module';
 
 
 
@@ -76,6 +77,7 @@ import { CloudinaryModule } from './cloudinary/cloudinary.module';
     DepartamentoProvincialModule,
     ArchivoModule,
     CloudinaryModule,
+    S3Module,
   //  MulterModule
   ],
   controllers: [AppController],

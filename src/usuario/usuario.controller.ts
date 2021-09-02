@@ -105,43 +105,77 @@ export class UsuarioController {
 
     }
 
+
+
     @Post('foto')
     @UseInterceptors(
          FileInterceptor(
-             'foto',{
-                 storage: diskStorage({
-                     destination: path.join(__dirname,'../../users-pictures'),
-                     filename: (req, file, cb) => {
-                               cb(null, uuid() + path.extname(file.originalname))
-                    },
-                    },
-                 ),
-                 fileFilter: (req, file, cb) => {
-                            if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
-                                 return cb(new HttpException('Formato de archivo inválido (jpg|jpeg|png|gif)', HttpStatus.BAD_REQUEST),false);
-                              }
-                           cb(null, true);
-                                              
-                     }
-             })   
+             'foto')   
         )
     async cargarFoto(
         @UploadedFile()
-        foto: Express.Multer.File,
+        foto: Express.Multer.File,        
         @Req()
         req: Request,    
     ){
-        try {
-            if(req.query.id === null || foto === null){
-                    throw new Error;
+        
+                try {
+            if(req.query.id === null || foto === null || foto === undefined){
+                    throw new Error('No olvide adjuntar un archivo imagen y el parámetro id del  usuario!!');
             }
+            if(!foto.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
+                throw new Error('Formato de archivo inválido (jpg|jpeg|png|gif)');
+                                          }
             const id: number = parseInt(req.query.id.toString());
-            // console.log(foto);
-            return await this.usuarioService.cargarFoto(foto.filename, id);
+            return await this.usuarioService.cargarFoto(foto, id);
             
         } catch (error) {
-            throw new BadRequestException('No olvide adjuntar un archivo imagen y el parámetro id del  usuario!!');
+            throw new BadRequestException(error.message);
         }
     }
+
+
+
+
+
+
+    // @Post('foto')
+    // @UseInterceptors(
+    //      FileInterceptor(
+    //          'foto',{
+    //              storage: diskStorage({
+    //                  destination: path.join(__dirname,'../../users-pictures'),
+    //                  filename: (req, file, cb) => {
+    //                            cb(null, uuid() + path.extname(file.originalname))
+    //                 },
+    //                 },
+    //              ),
+    //              fileFilter: (req, file, cb) => {
+    //                         if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
+    //                              return cb(new HttpException('Formato de archivo inválido (jpg|jpeg|png|gif)', HttpStatus.BAD_REQUEST),false);
+    //                           }
+    //                        cb(null, true);
+                                              
+    //                  }
+    //          })   
+    //     )
+    // async cargarFoto(
+    //     @UploadedFile()
+    //     foto: Express.Multer.File,
+    //     @Req()
+    //     req: Request,    
+    // ){
+    //     try {
+    //         if(req.query.id === null || foto === null){
+    //                 throw new Error;
+    //         }
+    //         const id: number = parseInt(req.query.id.toString());
+    //         // console.log(foto);
+    //         return await this.usuarioService.cargarFoto(foto.filename, id);
+            
+    //     } catch (error) {
+    //         throw new BadRequestException('No olvide adjuntar un archivo imagen y el parámetro id del  usuario!!');
+    //     }
+    // }
 
 }
