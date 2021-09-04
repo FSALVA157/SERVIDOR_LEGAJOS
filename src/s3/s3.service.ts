@@ -1,21 +1,23 @@
 import { Injectable, Req, Res } from '@nestjs/common';
 import * as AWS from "aws-sdk";
+import { S3_ACCESS_KEY, S3_BUCKET_PDF, S3_SECRET_ACCESS_KEY } from '../config/constants';
+import { v4 as uuid } from 'uuid';
 
 @Injectable()
 export class S3Service
 {
-    AWS_S3_BUCKET = process.env.AWS_S3_BUCKET;
-    s3 = new AWS.S3
-    ({
-        accessKeyId: process.env.AWS_S3_ACCESS_KEY,
-        secretAccessKey: process.env.AWS_S3_KEY_SECRET,
-    });
+    AWS_S3_BUCKET = 'archivos-carcel-xxavierargentino/Legajos-Archivos';
+    s3 = new AWS.S3(
+        {
+        accessKeyId: 'AKIARBJW4VDXYSQBI4ZU',
+        secretAccessKey: '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',
+    }
+    );
 
     async uploadFile(file)
     {
         const { originalname } = file;
-
-        await this.s3_upload(file.buffer, this.AWS_S3_BUCKET, originalname, file.mimetype);
+        return await this.s3_upload(file.buffer, this.AWS_S3_BUCKET, originalname, file.mimetype);
     }
 
     async s3_upload(file, bucket, name, mimetype)
@@ -23,7 +25,7 @@ export class S3Service
         const params = 
         {
             Bucket: bucket,
-            Key: String(name),
+            Key: `${uuid()}+ ${String(name)}`,
             Body: file,
             ACL: "public-read",
             ContentType: mimetype,

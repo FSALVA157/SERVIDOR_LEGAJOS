@@ -4,6 +4,7 @@ import { ArchivoController } from './archivo.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Archivo } from './entities/archivo.entity';
 import { PersonalModule } from '../personal/personal.module';
+import { S3Service } from '../s3/s3.service';
 
 
 
@@ -17,6 +18,7 @@ import { PersonalModule } from '../personal/personal.module';
   controllers: [ArchivoController],
   providers: [
     ArchivoService,
+    S3Service
   ],
   exports:[ ]
 })
