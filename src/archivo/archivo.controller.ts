@@ -15,6 +15,7 @@ import { File } from 'aws-sdk/clients/codecommit';
 
 @Controller('archivo')
 export class ArchivoController {
+  res: any;
   constructor(
     private readonly archivoService: ArchivoService,
     private readonly s3Service: S3Service
@@ -160,66 +161,61 @@ export class ArchivoController {
 
    @Post('pdf')
    @UseInterceptors(
-          FileInterceptor(
-              'pdf'
-              )   
-         )
-  //  @UseInterceptors(
-  //       FileInterceptor(
-  //           'pdf',{
-  //               storage: diskStorage({
-  //                   destination: path.join(__dirname,'../../personal-pdf'),
-  //                   filename: (req, file, cb) => {
-  //                       cb(null, uuid() + path.extname(file.originalname))
-  //                  },
-  //                  },
-  //               ),
-  //               fileFilter: (req, file, cb) => {
-  //                          if(!file.originalname.match(/\.(pdf)$/)){
-  //                               return cb(new HttpException('Sólo se admiten archivos PDF!', HttpStatus.BAD_REQUEST),false);
-  //                            }
-  //                         cb(null, true);
+        FileInterceptor(
+            'pdf',{
+                fileFilter: (req, file, cb) => {
+                           if(!file.originalname.match(/\.(pdf)$/)){
+                                return cb(new HttpException('Sólo se admiten archivos PDF!', HttpStatus.BAD_REQUEST),false);
+                             }
+                          cb(null, true);
                                              
-  //                   }
-  //           })   
-  //      )
+                    }
+            })   
+       )
    async cargarPDF(
        @UploadedFile()
        pdf: File,
-      //  @Body()
-      //  data_body: Request    
+       @Body()
+       data_body: Request    
    ){
-      try {
-        return this.s3Service.uploadFile(pdf).then();
-      } catch (error) {
+      // try {
+      //   return this.s3Service.uploadFile(pdf).then();
+      // } catch (error) {
         
+      // }
+       try {
+         let fecha: Date = null;      
+                  
+         if(data_body['legajo'] === null || data_body['legajo'] === undefined){
+            throw new Error('Debe asignar el pdf a un personal');
+           }
+           if(data_body['detalle'] === null || data_body['detalle'] === undefined){
+            throw new Error('El detalle o titulo del documento es obligatorio!');
+           }
+           const detalle: string = data_body['detalle'].toString() || "";
+           const indice: number = parseInt(data_body['indice'].toString()) || 0;
+         if(data_body['fecha_documento']){
+              fecha =  new Date(data_body['fecha_documento'].toString());
+           }else{
+            throw new Error('El campo fecha del pdf es obligatorio');
+           }
+
+           this.res = await this.s3Service.uploadFile(pdf).then();
+         //  console.log('LA RESPUESTA ES>>>', this.res);
+            return this.res;
+      } catch (error) {
+                    throw new BadRequestException(error.message);        
       }
-      //  try {
-      //    let fecha: Date = null;      
-      //    if(!pdf){
-      //     throw new Error('Debe adjuntar un archivo pdf');
-      //    }
-         
-      //    if(data_body['legajo'] === null){
-      //       throw new Error('Debe asignar el pdf a un personal');
-      //      }
-      //      const detalle: string = data_body['detalle'].toString() || "";
-      //      const indice: number = parseInt(data_body['indice'].toString()) || 0;
-      //    if(data_body['fecha_documento']){
-      //         fecha =  new Date(data_body['fecha_documento'].toString());
-      //      }else{
-      //       throw new Error('El campo fecha del pdf es obligatorio');
-      //      }
-      //    const nuevoPdf: CreateArchivoDto = {
-      //          legajo_personal:   parseInt(data_body['legajo'].toString()),
-      //          nombre_archivo: pdf.filename,
-      //          detalle: detalle,
-      //          indice: indice,
-      //          fecha_documento: fecha 
-      //      }
+        //  const nuevoPdf: CreateArchivoDto = {
+        //        legajo_personal:   parseInt(data_body['legajo'].toString()),
+        //        nombre_archivo: pdf.filename,
+        //        detalle: detalle,
+        //        indice: indice,
+        //        fecha_documento: fecha 
+        //    }
            
          
-      //      return await this.archivoService.cargarPDF(nuevoPdf);
+        //    return await this.archivoService.cargarPDF(nuevoPdf);
            
       //  } catch (error) {
       //      throw new BadRequestException(error.message);
@@ -227,7 +223,27 @@ export class ArchivoController {
    }
 
 
-
+   @Get('/s3/pdf')
+   async findPdf(
+     @Req()
+       req: Request,
+       @Res()
+       res: Response
+     ) {
+       try {
+         if(!req.query.key){
+             throw new Error('Debe proporcionar la key del archivo');
+         }
+         const key = req.query.key.toString();
+         
+         const filePdf = this.s3Service.s3_getPdf(key).then();
+         console.log('SE OBTIENE >>>>', filePdf);
+         //res.sendFile(ruta);        
+     } catch (error) {
+         throw new BadRequestException(error.message);
+     }
+ 
+   }
 
 
 }
