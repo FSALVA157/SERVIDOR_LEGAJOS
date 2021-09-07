@@ -178,12 +178,7 @@ export class ArchivoController {
        @Body()
        data_body: Request    
    ){
-      // try {
-      //   return this.s3Service.uploadFile(pdf).then();
-      // } catch (error) {
-        
-      // }
-       try {
+            try {
          let fecha: Date = null;      
                   
          if(data_body['legajo'] === null || data_body['legajo'] === undefined){
@@ -201,7 +196,18 @@ export class ArchivoController {
            }
 
            this.res = await this.s3Service.uploadFile(pdf).then();
-         //  console.log('LA RESPUESTA ES>>>', this.res);
+           const nameFile: string = this.res['key'];
+           const nuevoPdf: CreateArchivoDto = {
+                         legajo_personal:   parseInt(data_body['legajo'].toString()),
+                         nombre_archivo: nameFile,
+                         detalle: detalle,
+                         indice: indice,
+                         fecha_documento: fecha 
+                     }
+                     
+                   await this.archivoService.cargarPDF(nuevoPdf);
+
+
             return this.res;
       } catch (error) {
                     throw new BadRequestException(error.message);        
@@ -236,9 +242,12 @@ export class ArchivoController {
          }
          const key = req.query.key.toString();
          
-         const filePdf = this.s3Service.s3_getPdf(key).then();
-         console.log('SE OBTIENE >>>>', filePdf);
-         //res.sendFile(ruta);        
+         const filePdf = await this.s3Service.s3_getPdf(key);
+         filePdf.pipe(res);
+          //const auxiliar = filePdf.query
+          // console.log('SE OBTIENE >>>>', filePdf);
+          // return filePdf.send();
+        // res.sendFile(filePdf);        
      } catch (error) {
          throw new BadRequestException(error.message);
      }
