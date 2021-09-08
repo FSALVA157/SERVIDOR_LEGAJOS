@@ -386,6 +386,12 @@ export class  Personal {
            })
     foto: string;
 
+    @Column({
+        type: "varchar",
+        nullable: true,
+            })
+    detalles: string;
+
    @CreateDateColumn()
    fecha_alta: Date;
 

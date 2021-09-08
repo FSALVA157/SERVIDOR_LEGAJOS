@@ -143,5 +143,9 @@ export class CreatePersonalDto {
     @IsOptional()
     foto: string;
 
+    @IsString()
+    @IsOptional()
+    detalles: string;
+
     
 }
