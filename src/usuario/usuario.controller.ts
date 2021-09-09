@@ -127,11 +127,36 @@ export class UsuarioController {
                 throw new Error('Formato de archivo inválido (jpg|jpeg|png|gif)');
                                           }
             const id: number = parseInt(req.query.id.toString());
-            return await this.usuarioService.cargarFoto(foto, id);
+            return await this.usuarioService.cargarFoto(foto, id).catch((e)=>{
+                throw new Error(e.message);
+            });
             
         } catch (error) {
             throw new BadRequestException(error.message);
         }
+    }
+
+
+    @Delete('/delete/foto')
+    async deleteFoto(
+        @Req()
+        req: Request
+        ){
+            try {
+                
+                if(req.query.id === null || req.query.id === undefined){
+                    throw new Error("Debe Especificar el Parámetro id del Usuario!");
+                    }        
+                const id: number = parseInt(req.query.id.toString());
+                
+                return await this.usuarioService.deleteFoto(id).catch((e)=>{
+                    throw new Error(e.message);
+                });
+            } catch (error) {
+                throw new BadRequestException(error.message);
+            }
+        
+
     }
 
 

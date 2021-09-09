@@ -183,9 +183,20 @@ async getFotoByIdUsuario(id: number){
 
 async deleteFoto(id:number){
     try {
+        const usuario = await this.usuarioRepository.findOne(id);
+        if(!usuario){
+            throw new Error('El registro de usuario no Existe!');
+        }
+        
+        const img = usuario.img;
+        const respuesta = await this.cloudinaryService.deleteImage(img).catch((e) => {
+            console.log('ERROR EN EL SERVICE', e.message);
+            throw new Error(e.message);
+            
+        });
         
     } catch (error) {
-        
+        throw new Error(error.message);
     }
 
 }
