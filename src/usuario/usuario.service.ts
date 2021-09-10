@@ -130,12 +130,9 @@ async getUserByEmail(correo: string){
         throw new NotFoundException('No existe el usuario al que intenta asignar la imagen');
        }
     //veamos si existe una imagen asociada
-        if(user.img !== null){                    
-                //      fs.unlink(path.join(__dirname,'../../users-pictures',user.img)).then(resultado => { 
-                //      }).catch(error=>{
-                //     throw new BadRequestException(error.error.message);
-                    
-                // });   
+        if(user.img !== null){    
+        const id_user: number = parseInt(user.id_usuario.toString());                
+          await this.deleteFoto(id_user);
         }
 
         //subiendo la imagen a cloudinary
@@ -171,8 +168,9 @@ async getFotoByIdUsuario(id: number){
         if(!user){
             throw new Error('El Usuario que busca no Existe');
         }
-        const ruta = path.resolve(__dirname,`../../users-pictures/${user.img}` );
-        return ruta;       
+        // const ruta = path.resolve(__dirname,`../../users-pictures/${user.img}` );
+        // return ruta;       
+        return user.img;
         
     } catch (error) {
         throw new BadRequestException(error.message);
@@ -187,13 +185,15 @@ async deleteFoto(id:number){
         if(!usuario){
             throw new Error('El registro de usuario no Existe!');
         }
-        
+        if(usuario.img == null || usuario.img == undefined){
+            throw new Error('No Existe foto del usuario seleccionado!');
+        }
         const img = usuario.img;
-        const respuesta = await this.cloudinaryService.deleteImage(img).catch((e) => {
-            console.log('ERROR EN EL SERVICE', e.message);
-            throw new Error(e.message);
-            
-        });
+        const respuestaCloudService =  await this.cloudinaryService.deleteImage(img).catch((e) => {
+                 throw new Error(e.message);
+            });
+        
+        return respuestaCloudService;
         
     } catch (error) {
         throw new Error(error.message);

@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UploadApiErrorResponse, UploadApiResponse, DeleteApiResponse, v2 } from 'cloudinary';
 import toStream = require('buffer-to-stream');
+import path = require('path');
 
 @Injectable()
 export class CloudinaryService {
@@ -30,24 +31,23 @@ export class CloudinaryService {
   }
 
 async deleteImage(fileName: string): Promise<DeleteApiResponse>{
-  //fileName = "hzsy4idqbqxm3urrnddk";
-  console.log('EL FILE NAME ES >>>>', fileName);
-  //const regex = /(\/).(jpg|jpeg|png|gif)/;
-  const regex = /(\/).(\.)/;
-  console.log(fileName.match(regex));
+  let nombre = path.basename(fileName, '.jpg');
+  console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION jpg ES>>>', nombre);
+  nombre = path.basename(nombre, '.jpeg');
+  console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION jpeg ES>>>', nombre);
+      nombre = path.basename(nombre, '.png');
+      console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION png ES>>>', nombre);
+      nombre = path.basename(nombre, '.gif');
+      console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION gif ES>>>', nombre);
+      
+  
   return new Promise((resolve, reject) => {
-
-    v2.uploader.destroy(fileName, function(error,result) {
+    v2.uploader.destroy(nombre, function(error,result) {
       if(error){
-        //console.log('ERROR EN CLOUDINARY>>>', error);
-         reject(error);
+        reject(error);
       }
-      //console.log('RESPUESTA EN CLOUDINARY>>>', result);
       if(result.result === 'ok'){
-        return {
-          status: 'Ok',
-          message: 'El Archivo ha sido eliminado con Exito'
-        }
+        resolve(result);
       }else{
         reject(new Error(result.result));
       }
