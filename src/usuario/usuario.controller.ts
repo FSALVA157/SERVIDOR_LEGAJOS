@@ -52,7 +52,6 @@ export class UsuarioController {
           const id: number = parseInt(req.query.id.toString());
           
               const ruta = await this.usuarioService.getFotoByIdUsuario(id);
-              console.log('VALOR DE RUTA>>>>>>', ruta);
               res.sendFile(ruta);
           
         
