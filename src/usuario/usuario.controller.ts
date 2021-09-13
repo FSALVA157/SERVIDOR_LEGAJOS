@@ -79,8 +79,7 @@ export class UsuarioController {
     async create(
         @Body()
         usuarioDto: CreateUserDto
-    ){
-                
+    ){                
         return await this.usuarioService.createOne(usuarioDto);
     }
 
@@ -98,11 +97,9 @@ export class UsuarioController {
     @Delete(':id')
     async deleteOne(
         @Param('id',ParseIntPipe)
-        id: number
-        
+        id: number        
     ){
         return await this.usuarioService.deleteOne(id);
-
     }
 
 

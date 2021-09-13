@@ -212,20 +212,7 @@ export class ArchivoController {
       } catch (error) {
                     throw new BadRequestException(error.message);        
       }
-        //  const nuevoPdf: CreateArchivoDto = {
-        //        legajo_personal:   parseInt(data_body['legajo'].toString()),
-        //        nombre_archivo: pdf.filename,
-        //        detalle: detalle,
-        //        indice: indice,
-        //        fecha_documento: fecha 
-        //    }
-           
-         
-        //    return await this.archivoService.cargarPDF(nuevoPdf);
-           
-      //  } catch (error) {
-      //      throw new BadRequestException(error.message);
-      //  }
+        
    }
 
 
@@ -244,10 +231,7 @@ export class ArchivoController {
          
          const filePdf = await this.s3Service.s3_getPdf(key);
          filePdf.pipe(res);
-          //const auxiliar = filePdf.query
-          // console.log('SE OBTIENE >>>>', filePdf);
-          // return filePdf.send();
-        // res.sendFile(filePdf);        
+        
      } catch (error) {
          throw new BadRequestException(error.message);
      }

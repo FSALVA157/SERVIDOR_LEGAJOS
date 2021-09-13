@@ -69,4 +69,27 @@ export class S3Service{
             throw new BadRequestException(error.message);
         }
     }
+
+    async s3_deletePdf(key: string){
+        // import { DeleteObjectCommand } from "@aws-sdk/client-s3";
+        // import { s3Client } from "./libs/s3Client.js" // Helper function that creates Amazon S3 service client module.
+        
+        const bucketParams = { 
+            Bucket: this.config.get<string>(S3_BUCKET_PDF),
+            Key: key 
+        };
+        
+        const run = async () => {
+          try {
+            //const data = await s3Client.send(new DeleteObjectCommand(bucketParams));
+            const data = await this.s3.deleteObject(bucketParams).promise();
+            console.log("Success. Object deleted.", data);
+            return data; // For unit tests.
+          } catch (err) {
+            console.log("Error", err);
+          }
+        };
+        run();
+        
+    }
 }
