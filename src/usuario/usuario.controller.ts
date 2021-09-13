@@ -79,8 +79,7 @@ export class UsuarioController {
     async create(
         @Body()
         usuarioDto: CreateUserDto
-    ){
-                
+    ){                
         return await this.usuarioService.createOne(usuarioDto);
     }
 
@@ -98,11 +97,9 @@ export class UsuarioController {
     @Delete(':id')
     async deleteOne(
         @Param('id',ParseIntPipe)
-        id: number
-        
+        id: number        
     ){
         return await this.usuarioService.deleteOne(id);
-
     }
 
 
@@ -127,7 +124,9 @@ export class UsuarioController {
                 throw new Error('Formato de archivo inválido (jpg|jpeg|png|gif)');
                                           }
             const id: number = parseInt(req.query.id.toString());
-            return await this.usuarioService.cargarFoto(foto, id);
+            return await this.usuarioService.cargarFoto(foto, id).catch((e)=>{
+                throw new Error(e.message);
+            });
             
         } catch (error) {
             throw new BadRequestException(error.message);
@@ -135,47 +134,33 @@ export class UsuarioController {
     }
 
 
+    @Delete('/delete/foto')
+    async deleteFoto(
+        @Req()
+        req: Request
+        ){
+            try {
+                
+                if(req.query.id === null || req.query.id === undefined){
+                    throw new Error("Debe Especificar el Parámetro id del Usuario!");
+                    }        
+                const id: number = parseInt(req.query.id.toString());
+                
+               return await this.usuarioService.deleteFoto(id).then(async (respuesta) => {
+                   await this.usuarioService.editOne(id,{img: null}).then();
+                    return {
+                        status: 'OK',
+                        message: "Se ha eliminado la foto de la Nube!"
+                    }
+                }).catch((e)=>{
+                    throw new Error(e.message);
+                });
+            } catch (error) {
+                throw new BadRequestException(error.message);
+            }
+        
 
+    }
 
-
-
-    // @Post('foto')
-    // @UseInterceptors(
-    //      FileInterceptor(
-    //          'foto',{
-    //              storage: diskStorage({
-    //                  destination: path.join(__dirname,'../../users-pictures'),
-    //                  filename: (req, file, cb) => {
-    //                            cb(null, uuid() + path.extname(file.originalname))
-    //                 },
-    //                 },
-    //              ),
-    //              fileFilter: (req, file, cb) => {
-    //                         if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
-    //                              return cb(new HttpException('Formato de archivo inválido (jpg|jpeg|png|gif)', HttpStatus.BAD_REQUEST),false);
-    //                           }
-    //                        cb(null, true);
-                                              
-    //                  }
-    //          })   
-    //     )
-    // async cargarFoto(
-    //     @UploadedFile()
-    //     foto: Express.Multer.File,
-    //     @Req()
-    //     req: Request,    
-    // ){
-    //     try {
-    //         if(req.query.id === null || foto === null){
-    //                 throw new Error;
-    //         }
-    //         const id: number = parseInt(req.query.id.toString());
-    //         // console.log(foto);
-    //         return await this.usuarioService.cargarFoto(foto.filename, id);
-            
-    //     } catch (error) {
-    //         throw new BadRequestException('No olvide adjuntar un archivo imagen y el parámetro id del  usuario!!');
-    //     }
-    // }
 
 }
