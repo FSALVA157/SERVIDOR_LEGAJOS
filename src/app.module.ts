@@ -4,8 +4,8 @@ import{ConfigModule, ConfigService} from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsuarioModule } from './usuario/usuario.module';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { DATABASE_HOST, DATABASE_NAME, DATABASE_PASSWORD, DATABASE_USERNAME, DATABASE_PORT } from "./config/constants";
+import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
+import { TYPEORM_CONFIG } from "./config/constants";
 import { PersonalModule } from './personal/personal.module';
 import { AuthModule } from './auth/auth.module';
 import { SituacionModule } from './situacion/situacion.module';
@@ -30,30 +30,26 @@ import { MulterModule } from '@nestjs/platform-express';
 import { ArchivoModule } from './archivo/archivo.module';
 import { CloudinaryModule } from './cloudinary/cloudinary.module';
 import { S3Module } from './s3/s3.module';
-
+import databaseConfig from './config/database.config';
+import * as Joi from 'joi';
 
 
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        type: 'mysql',
-        host: config.get<string>(DATABASE_HOST),
-       // host: "172.20.0.2",
-        port: parseInt(config.get<string>(DATABASE_PORT),10),
-        //port: 3306,
-        username: config.get<string>(DATABASE_USERNAME),
-        password: config.get<string>(DATABASE_PASSWORD),
-        database: config.get<string>(DATABASE_NAME),
-        entities: [__dirname + "./**/**/*.entity{.ts,.js}"],
-        autoLoadEntities: true,
-        synchronize: true,
-      }) 
+      useFactory: (config: ConfigService) => 
+      config.get<TypeOrmModuleOptions>(TYPEORM_CONFIG)
     }),
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env'
+      load: [databaseConfig],
+      envFilePath: `.env.${process.env.NODE_ENV || 'development'}`, // .env.development
+      validationSchema: Joi.object({ 
+        NODE_ENV: Joi.string()
+          .valid('development', 'production')
+          .default('development')
+      }),
     }),
     UsuarioModule,
     PersonalModule,
@@ -86,4 +82,8 @@ import { S3Module } from './s3/s3.module';
     PersonalModule
   ]
 })
-export class AppModule {}
+export class AppModule {
+  // constructor(){
+  //   console.log('EL ENV VIENE DE>>>>>>>>', `.env.${process.env.NODE_ENV || 'development'}`);
+  // }
+}
