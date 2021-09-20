@@ -2,9 +2,15 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+import { generateTypeormConfigFile } from './scripts';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  const configOrm = app.get(ConfigService);
+
+  generateTypeormConfigFile(configOrm);
+
   //configuración de los pipes globales
   app.useGlobalPipes(
     new ValidationPipe({
