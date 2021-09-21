@@ -2,8 +2,12 @@
 /dist
 /node_modules
 
+# ormconfig.json
+ormconfig.json
+
 .env*
 # -.- = +
+.env.local
 !.env.sample
 
 
@@ -37,3 +41,4 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
