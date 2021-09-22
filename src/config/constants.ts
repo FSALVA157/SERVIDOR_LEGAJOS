@@ -1,3 +1,4 @@
+export const SERVER_PORT = 'PORT';
 /**
  * Esta variable nos devolvera la configuración de typeorm
  */
