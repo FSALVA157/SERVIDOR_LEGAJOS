@@ -18,10 +18,7 @@ export class SexoService {
      */
     async getAll(){
         try {
-            return  {
-                message: "Listado Completo de Tabla sexo",
-                lista: await this.sexoRepository.find()
-            }
+            return await this.sexoRepository.find();
              } catch (error) {
             throw new BadRequestException(error.message);
         }
