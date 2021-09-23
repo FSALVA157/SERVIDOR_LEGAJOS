@@ -52,8 +52,10 @@ export class UsuarioController {
           const id: number = parseInt(req.query.id.toString());
           
               const ruta = await this.usuarioService.getFotoByIdUsuario(id);
-              const ruta_lista = path.resolve(ruta);
-              res.sendFile(ruta_lista);
+              //res.sendFile(rut);
+              res.status(200).send({
+                  foto_usuario: ruta
+              });
           
         
           
