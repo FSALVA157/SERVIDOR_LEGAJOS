@@ -168,8 +168,8 @@ export class ArchivoController {
          const key = req.query.key.toString();
          
          const filePdf = await this.s3Service.s3_getPdf(key);
-         //filePdf.pipe(res);
-         return filePdf;
+         filePdf.pipe(res);
+         //return filePdf;
         
      } catch (error) {
          throw new BadRequestException(error.message);
