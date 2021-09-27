@@ -17,7 +17,7 @@ export class CloudinaryService {
     
     return new Promise((resolve, reject) => {
        //v2.uploader.upload(file.path, function(error, result) { console.log(result, error) });
-       
+      console.log('KEY CLOUDINARY:>>>>>', v2.config); 
       const upload = v2.uploader.upload_stream((error, result) => {
         if (error){
           console.log('ERROR QUE VIENE DE CLOUDINARY', error.message);
@@ -32,13 +32,13 @@ export class CloudinaryService {
 
 async deleteImage(fileName: string): Promise<DeleteApiResponse>{
   let nombre = path.basename(fileName, '.jpg');
-  console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION jpg ES>>>', nombre);
+ // console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION jpg ES>>>', nombre);
   nombre = path.basename(nombre, '.jpeg');
-  console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION jpeg ES>>>', nombre);
+ // console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION jpeg ES>>>', nombre);
       nombre = path.basename(nombre, '.png');
-      console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION png ES>>>', nombre);
+   //   console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION png ES>>>', nombre);
       nombre = path.basename(nombre, '.gif');
-      console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION gif ES>>>', nombre);
+     // console.log('EL ID DE LA FOTO LUEGO DE PREGUNTAR POR EXTENSION gif ES>>>', nombre);
       
   
   return new Promise((resolve, reject) => {
