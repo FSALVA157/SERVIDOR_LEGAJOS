@@ -25,7 +25,7 @@ export class UsuarioController {
         this.cloud_name =   config.get<string>(CLOUDINARY_CLOUD_NAME);
         this.api_key =  config.get<string>(CLOUDINARY_API_KEY);
         this. api_secret =  config.get<string>(CLOUDINARY_API_SECRET);
-        console.log(`CREDENCIALES>>>${this.cloud_name} - ${this.api_key} - ${this.api_secret}`);
+       
     }
 
     @Get('foto')
@@ -131,6 +131,7 @@ export class UsuarioController {
     ){
         
                 try {
+                    console.log(`CREDENCIALES>>>${this.cloud_name} - ${this.api_key} - ${this.api_secret}`);
             if(req.query.id === null || foto === null || foto === undefined){
                     throw new Error('No olvide adjuntar un archivo imagen y el parámetro id del  usuario!!');
             }
