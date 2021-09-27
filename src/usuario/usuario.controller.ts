@@ -5,17 +5,28 @@ import { diskStorage } from 'multer';
 import * as path from 'path';
 import { v4 as uuid } from 'uuid';
 import {Request, Response} from 'express';
+import { ConfigService } from '@nestjs/config';
 
 import { CreateUserDto } from './dto';
 import { EditUserDto } from './dto/edit-user.dto';
 import { UsuarioService } from './usuario.service';
+import { CLOUDINARY, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY,CLOUDINARY_API_SECRET } from 'src/config/constants';
 
 @Controller('usuarios')
 export class UsuarioController {
+    cloud_name = '';
+    api_key = '';
+    api_secret = '';
 
     constructor(
-        private readonly usuarioService: UsuarioService
-    ){}
+        private readonly usuarioService: UsuarioService,
+        private config: ConfigService
+    ){
+        this.cloud_name =   config.get<string>(CLOUDINARY_CLOUD_NAME);
+        this.api_key =  config.get<string>(CLOUDINARY_API_KEY);
+        this. api_secret =  config.get<string>(CLOUDINARY_API_SECRET);
+        console.log(`CREDENCIALES>>>${this.cloud_name} - ${this.api_key} - ${this.api_secret}`);
+    }
 
     @Get('foto')
      async getFoto(

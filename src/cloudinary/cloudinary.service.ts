@@ -17,7 +17,7 @@ export class CloudinaryService {
     
     return new Promise((resolve, reject) => {
        //v2.uploader.upload(file.path, function(error, result) { console.log(result, error) });
-      console.log('KEY CLOUDINARY:>>>>>', v2.config); 
+      
       const upload = v2.uploader.upload_stream((error, result) => {
         if (error){
           console.log('ERROR QUE VIENE DE CLOUDINARY', error.message);
