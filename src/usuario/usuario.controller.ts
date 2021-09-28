@@ -25,6 +25,9 @@ export class UsuarioController {
         this.cloud_name =   config.get<string>(CLOUDINARY_CLOUD_NAME);
         this.api_key =  config.get<string>(CLOUDINARY_API_KEY);
         this. api_secret =  config.get<string>(CLOUDINARY_API_SECRET);
+        // this.cloud_name =   process.env.CLOUDINARY.CLOUD_NAME;
+        // this.api_key =  process.env.CLOUDINARY_API_KEY);
+        // this. api_secret =  process.env.CLOUDINARY_API_SECRET);
        
     }
 

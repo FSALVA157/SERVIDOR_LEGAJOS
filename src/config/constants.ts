@@ -4,9 +4,9 @@ export const SERVER_PORT = 'PORT';
  */
 export const TYPEORM_CONFIG = 'database.config';
 
-export const CLOUDINARY_CLOUD_NAME = 'CLOUDINARY.CLOUD_NAME';
-export const CLOUDINARY_API_KEY = 'CLOUDINARY.API_KEY';
-export const CLOUDINARY_API_SECRET = 'CLOUDINARY.API_SECRET';
+export const CLOUDINARY_CLOUD_NAME = 'CLOUDINARY_CLOUD_NAME';
+export const CLOUDINARY_API_KEY = 'CLOUDINARY_API_KEY';
+export const CLOUDINARY_API_SECRET = 'CLOUDINARY_API_SECRET';
 export const CLOUDINARY = 'Cloudinary';
 
 export const S3_BUCKET_PDF = 'S3.BUCKET_PDF';
