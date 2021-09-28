@@ -66,10 +66,10 @@ export class UsuarioController {
           const id: number = parseInt(req.query.id.toString());
           
               const ruta = await this.usuarioService.getFotoByIdUsuario(id);
-              //res.sendFile(rut);
-              res.status(200).send({
-                  foto_usuario: ruta
-              });
+              res.sendFile(ruta);
+            //   res.status(200).send({
+            //       foto_usuario: ruta
+            //   });
           
         
           
