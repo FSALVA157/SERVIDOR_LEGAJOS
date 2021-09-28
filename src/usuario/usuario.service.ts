@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, MethodNotAllowedException, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, MethodNotAllowedException, Next, NotFoundException } from '@nestjs/common';
 import {hash} from 'bcryptjs';
 import { CreateUserDto } from './dto/create-user.dto';
 import { EditUserDto } from './dto/edit-user.dto';
@@ -131,8 +131,12 @@ async getUserByEmail(correo: string){
        }
     //veamos si existe una imagen asociada
         if(user.img !== null && user.img !== "no-image.jpg"){    
-         const id_user: number = parseInt(user.id_usuario.toString());                
-           await this.deleteFoto(id_user);
+            try {
+                const id_user: number = parseInt(user.id_usuario.toString());                
+                  await this.deleteFoto(id_user);                
+            } catch (error) {
+                Next();
+            }
          }
 
         //subiendo la imagen a cloudinary
