@@ -135,7 +135,7 @@ async getUserByEmail(correo: string){
                 const id_user: number = parseInt(user.id_usuario.toString());                
                   await this.deleteFoto(id_user);                
             } catch (error) {
-                Next();
+                
             }
          }
 
