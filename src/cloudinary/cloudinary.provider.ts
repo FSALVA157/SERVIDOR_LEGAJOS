@@ -13,6 +13,7 @@ export const CloudinaryProvider = {
       cloud_name:  config.get<string>(CLOUDINARY_CLOUD_NAME),
       api_key: config.get<string>(CLOUDINARY_API_KEY),
       api_secret: config.get<string>(CLOUDINARY_API_SECRET),
+      secure: true    
       // cloud_name: "xxavierargentino",
       // api_key: "876447129776254",
       // api_secret: "tapHwHsGnIWw9x3Q0OZacVpD8j4",
