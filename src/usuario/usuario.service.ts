@@ -130,10 +130,10 @@ async getUserByEmail(correo: string){
         throw new NotFoundException('No existe el usuario al que intenta asignar la imagen');
        }
     //veamos si existe una imagen asociada
-        // if(user.img !== null && user.img !== "no-image.jpg"){    
-        //  const id_user: number = parseInt(user.id_usuario.toString());                
-        //    await this.deleteFoto(id_user);
-        //  }
+        if(user.img !== null && user.img !== "no-image.jpg"){    
+         const id_user: number = parseInt(user.id_usuario.toString());                
+           await this.deleteFoto(id_user);
+         }
 
         //subiendo la imagen a cloudinary
         const foto_subida =  await this.cloudinaryService.uploadImage(foto).catch(() => {
