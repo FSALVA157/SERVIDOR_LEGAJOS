@@ -131,7 +131,7 @@ async getUserByEmail(correo: string){
        }
     //veamos si existe una imagen asociada
        console.log('EL VALOR DEL CAMPO IMG ES ', typeof user.img);
-       if(user.img !== null){
+       if(user.img !== ""){
            console.log('ENTRANDO A ELIMINAR');
            const respuestaCloudService =  await this.cloudinaryService.deleteImage(user.img).catch((e) => {
                     throw new Error(e.message);
