@@ -131,7 +131,7 @@ async getUserByEmail(correo: string){
        }
     //veamos si existe una imagen asociada
 
-       if(user.img !== undefined){
+       if(user.img !== null){
            console.log('ENTRANDO A ELIMINAR');
            const respuestaCloudService =  await this.cloudinaryService.deleteImage(user.img).catch((e) => {
                     throw new Error(e.message);
