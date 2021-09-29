@@ -130,7 +130,7 @@ async getUserByEmail(correo: string){
         throw new NotFoundException('No existe el usuario al que intenta asignar la imagen');
        }
     //veamos si existe una imagen asociada
-        if(user.img !== null && user.img !== "no-image.jpg"){    
+        if(user.img != undefined && user.img !== null && user.img !== "no-image.jpg"){    
             try {
                 const id_user: number = parseInt(user.id_usuario.toString());                
                   await this.deleteFoto(id_user);                
