@@ -130,14 +130,26 @@ async getUserByEmail(correo: string){
         throw new NotFoundException('No existe el usuario al que intenta asignar la imagen');
        }
     //veamos si existe una imagen asociada
-        if(user.img != undefined && user.img !== null && user.img !== "no-image.jpg"){    
-            try {
-                const id_user: number = parseInt(user.id_usuario.toString());                
-                  await this.deleteFoto(id_user);                
-            } catch (error) {
+
+       if(user.img !== undefined){
+           console.log('ENTRANDO A ELIMINAR');
+           const respuestaCloudService =  await this.cloudinaryService.deleteImage(user.img).catch((e) => {
+                    throw new Error(e.message);
+               });
+           console.log('RESPUESTA DE BORRADO', respuestaCloudService);
+       }
+        // if(user.img != undefined && user.img !== null && user.img !== "no-image.jpg"){    
+        //     try {
+        //         const id_user: number = parseInt(user.id_usuario.toString());                
+        //           await this.deleteFoto(id_user);                
+        //     } catch (error) {
                 
-            }
-         }
+        //     }
+        //  }
+
+    //     const respuestaCloudService =  await this.cloudinaryService.deleteImage(img).catch((e) => {
+    //         throw new Error(e.message);
+    //    });
 
         //subiendo la imagen a cloudinary
         const foto_subida =  await this.cloudinaryService.uploadImage(foto).catch(() => {
