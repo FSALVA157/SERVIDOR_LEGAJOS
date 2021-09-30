@@ -130,13 +130,11 @@ async getUserByEmail(correo: string){
         throw new NotFoundException('No existe el usuario al que intenta asignar la imagen');
        }
     //veamos si existe una imagen asociada
-       console.log('EL VALOR DEL CAMPO IMG ES ', typeof user.img);
        if(user.img !== ""){
-           console.log('ENTRANDO A ELIMINAR');
-           const respuestaCloudService =  await this.cloudinaryService.deleteImage(user.img).catch((e) => {
-                    throw new Error(e.message);
+            await this.cloudinaryService.deleteImage(user.img).catch((e) => {
+                    
                });
-           console.log('RESPUESTA DE BORRADO', respuestaCloudService);
+           
        }
         // if(user.img != undefined && user.img !== null && user.img !== "no-image.jpg"){    
         //     try {
