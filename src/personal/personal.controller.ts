@@ -139,15 +139,20 @@ export class PersonalController {
         req: Request,    
     ){
         try {
-            if(req.query.id === null || foto === null){
-                    throw new Error;
+            if(req.query.id === null || foto === null || foto === undefined){
+                    throw new Error('Debe adjuntar una imagen y el id del Personal');
             }
+            if(!foto.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
+                throw new Error('Formato de archivo inválido (jpg|jpeg|png|gif)');
+                                        }
             const id: number = parseInt(req.query.id.toString());
-            console.log(foto);
-            return await this.personalService.cargarFoto(foto.filename, id);
+            
+            return await this.personalService.cargarFoto(foto, id).catch((e)=>{
+                throw new Error(e.message);
+            });
             
         } catch (error) {
-            throw new BadRequestException('No olvide adjuntar un archivo imagen y el parámetro id del  usuario!!');
+            throw new BadRequestException(error.message);
         }
     }
 }

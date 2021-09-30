@@ -14,17 +14,17 @@ import { CLOUDINARY, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY,CLOUDINARY_API_SE
 
 @Controller('usuarios')
 export class UsuarioController {
-    cloud_name = '';
-    api_key = '';
-    api_secret = '';
+    // cloud_name = '';
+    // api_key = '';
+    // api_secret = '';
 
     constructor(
         private readonly usuarioService: UsuarioService,
         private config: ConfigService
     ){
-        this.cloud_name =   config.get<string>(CLOUDINARY_CLOUD_NAME);
-        this.api_key =  config.get<string>(CLOUDINARY_API_KEY);
-        this. api_secret =  config.get<string>(CLOUDINARY_API_SECRET);
+        // this.cloud_name =   config.get<string>(CLOUDINARY_CLOUD_NAME);
+        // this.api_key =  config.get<string>(CLOUDINARY_API_KEY);
+        // this. api_secret =  config.get<string>(CLOUDINARY_API_SECRET);
         // this.cloud_name =   process.env.CLOUDINARY.CLOUD_NAME;
         // this.api_key =  process.env.CLOUDINARY_API_KEY);
         // this. api_secret =  process.env.CLOUDINARY_API_SECRET);
@@ -133,8 +133,8 @@ export class UsuarioController {
         req: Request,    
     ){
         
-                try {
-                    console.log(`CREDENCIALES>>>${this.cloud_name} - ${this.api_key} - ${this.api_secret}`);
+      try {
+                    //console.log(`CREDENCIALES>>>${this.cloud_name} - ${this.api_key} - ${this.api_secret}`);
             if(req.query.id === null || foto === null || foto === undefined){
                     throw new Error('No olvide adjuntar un archivo imagen y el parámetro id del  usuario!!');
             }

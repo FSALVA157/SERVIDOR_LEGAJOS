@@ -136,19 +136,7 @@ async getUserByEmail(correo: string){
                });
            
        }
-        // if(user.img != undefined && user.img !== null && user.img !== "no-image.jpg"){    
-        //     try {
-        //         const id_user: number = parseInt(user.id_usuario.toString());                
-        //           await this.deleteFoto(id_user);                
-        //     } catch (error) {
-                
-        //     }
-        //  }
-
-    //     const respuestaCloudService =  await this.cloudinaryService.deleteImage(img).catch((e) => {
-    //         throw new Error(e.message);
-    //    });
-
+      
         //subiendo la imagen a cloudinary
         const foto_subida =  await this.cloudinaryService.uploadImage(foto).catch(() => {
             throw new BadRequestException('Invalid file type.');

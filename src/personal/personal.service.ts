@@ -4,6 +4,7 @@ import { Personal } from './entities/personal.entity';
 import { Repository } from 'typeorm';
 import { EditPersonalDto } from './dto/edit-personal.dto';
 import { CreatePersonalDto } from './dto/create-personal.dto';
+import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 
@@ -50,7 +51,8 @@ export class PersonalService {
     res: Response;
     constructor(
         @InjectRepository(Personal)
-        private readonly personalRepository: Repository<Personal>
+        private readonly personalRepository: Repository<Personal>,
+        private cloudinaryService: CloudinaryService
     ){}
 
     
@@ -169,20 +171,25 @@ async getPersonalByLegajo(legajo: number){
  * @param id 
  * @returns 
  */
-async cargarFoto(foto_url: string, id: number){
+async cargarFoto(foto: Express.Multer.File, id: number){
     const personal = await this.personalRepository.findOne({id_personal: id});
     if(!personal){
         throw new NotFoundException('No existe el personal al que intenta asignar la imagen');
        }
 
     //si ya existe una foto vamos a eliminarla
-        if(personal.foto !== null){
+        if(personal.foto !== ""){
            
-                fs.unlink(path.resolve(personal.foto)).then().catch(error=>{
-                    throw new NotFoundException(error.message);
-                });
+            await this.cloudinaryService.deleteImage(personal.foto).catch((e) => {
+                  });
            
         }
+
+        //subiendo la imagen a cloudinary
+        const foto_subida =  await this.cloudinaryService.uploadImage(foto).catch(() => {
+            throw new BadRequestException('Invalid file type.');
+          });
+    const foto_url: string = foto_subida.url;
       
     let data: EditPersonalDto = {
         "foto": foto_url
