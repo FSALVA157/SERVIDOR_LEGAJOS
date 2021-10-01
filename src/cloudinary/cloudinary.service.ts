@@ -21,7 +21,7 @@ export class CloudinaryService {
       const upload = v2.uploader.upload_stream((error, result) => {
         if (error){
           console.log('ERROR QUE VIENE DE CLOUDINARY', error.message);
-          return reject(error);
+          return reject(error.message);
         } 
         resolve(result);
       });

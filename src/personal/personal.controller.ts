@@ -112,26 +112,9 @@ export class PersonalController {
 
     @Post('foto')
     @UseInterceptors(
-         FileInterceptor(
-             'foto',{
-                 storage: diskStorage({
-                     destination: path.join(__dirname,'../../personal-fotos'),
-                     filename: (req, file, cb) => {
-                               cb(null, uuid() + path.extname(file.originalname))
-                    },
-                    },
-                 ),
-                 fileFilter: (req, file, cb) => {
-                    
-                        if(!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)){
-                                         return cb(new HttpException('Formato de archivo inválido (jpg|jpeg|png|gif)', HttpStatus.BAD_REQUEST),false);
-                                         
-                        }
-                           cb(null, true);
-                                               
-                     }
-             })   
-        )
+        FileInterceptor(
+            'foto')   
+       )
     async cargarFoto(
         @UploadedFile()
         foto: Express.Multer.File,
