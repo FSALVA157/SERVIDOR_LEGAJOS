@@ -170,7 +170,7 @@ export class  Personal {
         name: "division_id",
         referencedColumnName: "id_division"
     })
-    division: Division;f
+    division: Division;
 
     @Column({
         type: "int",
