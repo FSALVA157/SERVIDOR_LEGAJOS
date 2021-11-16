@@ -85,7 +85,7 @@ async getMany(destino_usuario: number){
     try {
         return await this.personalRepository.findAndCount({
             order: {
-                nombre_1: "ASC"
+                apellido_1: "ASC"
             }
         });
         
