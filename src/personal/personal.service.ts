@@ -83,7 +83,11 @@ async getMany(destino_usuario: number){
  */
  async getAll(){
     try {
-        return await this.personalRepository.findAndCount();
+        return await this.personalRepository.findAndCount({
+            order: {
+                nombre_1: "ASC"
+            }
+        });
         
     } catch (error) {
             throw new BadRequestException(error.message)
