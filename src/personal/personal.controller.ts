@@ -58,7 +58,7 @@ export class PersonalController {
       }
      }
 
-     @Get('dni')
+     @Get(':dni')
     async getByDni(
         @Param('dni', ParseIntPipe)
         dni: number
