@@ -58,14 +58,20 @@ export class PersonalController {
       }
      }
 
-     @Get(':dni')
+     @Get('/dni')
     async getByDni(
-        @Param('dni', ParseIntPipe)
-        dni: number
+        @Req()
+        req: Request,
+        @Res()
+        res: Response
     ){
         try {
-               return await this.personalService.getPersonalByDni(dni);
-            
+            if(!req.query.dni){
+                throw new Error('Debe proporcionar el DNI');
+            }else{
+                const dni: number = parseInt(req.query.dni.toString());
+                return await this.personalService.getPersonalByDni(dni);
+            }
         } catch (error) {
             throw new BadRequestException(error.message);
         }
