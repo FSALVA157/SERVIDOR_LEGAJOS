@@ -57,6 +57,19 @@ export class PersonalController {
           throw new BadRequestException(error.message);
       }
      }
+
+     @Get('dni')
+    async getByDni(
+        @Param('dni', ParseIntPipe)
+        dni: number
+    ){
+        try {
+               return await this.personalService.getPersonalByDni(dni);
+            
+        } catch (error) {
+            throw new BadRequestException(error.message);
+        }
+    }
     
     @Get('/destino/:destino')
     async getMany(
@@ -66,24 +79,7 @@ export class PersonalController {
         return await this.personalService.getMany(destino);
     }
 
-    @Get('dni')
-    async getByDni(
-        @Req()
-        req: Request,
-        @Res()
-        res: Response
-    ){
-        try {
-            if(!req.query.dni){
-                throw new Error('Debe proporcionar el DNI');
-            }else{
-                const dni: number = parseInt(req.query.dni.toString());
-                return await this.personalService.getPersonalByDni(dni);
-            }
-        } catch (error) {
-            throw new BadRequestException(error.message);
-        }
-    }
+    
 
     @Get()
     async getAll(){
