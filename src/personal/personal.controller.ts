@@ -66,6 +66,18 @@ export class PersonalController {
         return await this.personalService.getMany(destino);
     }
 
+    @Get('dni/:dni')
+    async getByDni(
+        @Param('dni',ParseIntPipe)
+        dni: number
+    ){
+        try {
+            return await this.personalService.getPersonalByDni(dni);
+        } catch (error) {
+            throw new BadRequestException(error.message);
+        }
+    }
+
     @Get()
     async getAll(){
         return await this.personalService.getAll();

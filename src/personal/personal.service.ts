@@ -171,6 +171,22 @@ async getPersonalByLegajo(legajo: number){
     //             .getOne()
 }
 
+
+/**
+ * Servicio que retorna un registro de personal segun dni
+ * @param dni 
+ * @returns 
+ */
+ async getPersonalByDni(dni: number){
+     try {
+         return await this.personalRepository.findOne({where: [{dni}]});
+         
+     } catch (error) {
+        throw new NotFoundException('No existe el registro buscado');
+     }
+    
+}
+
 /**
  * Servicio que carga la foto de un personal según id
  * utiliza un parámetro nombre de foto para la ruta
