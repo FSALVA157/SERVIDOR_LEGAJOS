@@ -70,7 +70,11 @@ export class PersonalController {
                 throw new Error('Debe proporcionar el DNI');
             }else{
                 const dni: number = parseInt(req.query.dni.toString());
-                return await this.personalService.getPersonalByDni(dni);
+                const respuesta = await this.personalService.getPersonalByDni(dni);
+                res.json({
+                    'status': 200,
+                    'data': respuesta
+                });
             }
         } catch (error) {
             throw new BadRequestException(error.message);
