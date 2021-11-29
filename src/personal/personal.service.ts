@@ -179,7 +179,7 @@ async getPersonalByLegajo(legajo: number){
  */
  async getPersonalByDni(dni: number){
      try {
-         return await this.personalRepository.findOne({where: [{dni}]});
+         return await this.personalRepository.findOneOrFail({where: [{dni}]});
          
      } catch (error) {
         throw new NotFoundException('No existe el registro buscado');
