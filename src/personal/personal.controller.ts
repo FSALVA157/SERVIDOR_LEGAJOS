@@ -71,8 +71,7 @@ export class PersonalController {
             }else{
                 const dni: number = parseInt(req.query.dni.toString());
                 const respuesta = await this.personalService.getPersonalByDni(dni);
-                res.json({
-                    'status': 200,
+                res.status(200).json({
                     'data': respuesta
                 });
             }
