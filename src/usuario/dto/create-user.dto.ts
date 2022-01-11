@@ -45,7 +45,8 @@ export class CreateUserDto {
      */
     @IsOptional()
     @IsEnum(UsuarioRole,{
-      message: `No ha introducido un valor valido(${EnumToString(UsuarioRole)})`
+      //message: `No ha introducido un valor valido(${EnumToString(UsuarioRole)})`
+      message: `No ha introducido un valor valido`
     })
     role: UsuarioRole
 
