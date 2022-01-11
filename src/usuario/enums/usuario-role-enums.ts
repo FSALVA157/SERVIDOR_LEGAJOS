@@ -1,6 +1,9 @@
 
 export enum UsuarioRole{
-    admin = 'admin',
-    super = 'super',
-    normal = 'normal'
+    'admin',
+    'super',
+    'normal',
+    'sanciones',
+    'licencias',
+    'carpetas'
 }
